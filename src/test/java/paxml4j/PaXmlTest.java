@@ -29,9 +29,34 @@ public class PaXmlTest {
         assertEquals(doc1.toString(), doc2.toString());
     }
 
+    @Test
+    public void test_two_conversions_is_unchanged3() {
+        Root root1 = getRoot(3);
+        XmlDocument doc1 = PaXml.write(root1);
+        Root root2 = PaXml.read(doc1);
+        XmlDocument doc2 = PaXml.write(root2);
+        assertEquals(doc1.toString(), doc2.toString());
+    }
+
+    @Test
+    public void test_two_conversions_is_unchanged4() {
+        Root root1 = getRoot(4);
+        XmlDocument doc1 = PaXml.write(root1);
+        Root root2 = PaXml.read(doc1);
+        XmlDocument doc2 = PaXml.write(root2);
+        assertEquals(doc1.toString(), doc2.toString());
+    }
+
     private static Root getRoot(int i) {
-        if (i == 1) {
-            return PaXml.read(PaXmlTest.class.getResourceAsStream("/Workify_DEMOBOLAGET_TimeRegistrationexport (5).xml"));
+        switch (i) {
+            case 1:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/Workify_DEMOBOLAGET_TimeRegistrationexport (5).xml"));
+            case 2:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/PAXml 2.0.pax"));
+            case 3:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/DEMO - 2022-10-01-2022-10-31 (1).pax"));
+            case 4:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/DEMO - 2022-10-01-2022-10-31.xml"));
         }
         return PaXml.read(PaXmlTest.class.getResourceAsStream("/PAXml 2.0.pax"));
     }

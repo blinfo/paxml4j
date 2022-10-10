@@ -72,6 +72,7 @@ public class Root implements Entity {
         Helper.childNode(node, "tidtransaktioner").map(TimeTransactions::of).ifPresent(builder::timeTransactions);
         Helper.childNode(node, "lonetransaktioner").map(SalaryTransactions::of).ifPresent(builder::salaryTransactions);
         Helper.childNode(node, "schematransaktioner").map(SchemeTransactions::of).ifPresent(builder::schemeTransactions);
+        Helper.childNode(node, "personal").map(Staff::of).ifPresent(builder::staff);
         Helper.childNode(node, "loneutbetalning").map(SalaryPayments::of).ifPresent(builder::salaryPayments);
         Helper.childNode(node, "saldon").map(BalanceList::of).ifPresent(builder::balanceList);
         return builder.build();

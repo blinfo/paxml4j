@@ -175,7 +175,7 @@ public class Staff implements Entity {
 
         public static Employee of(XmlNode node) {
             Builder builder = builder();
-            Helper.attrText(node, "anstnr").ifPresent(builder::employmentId);
+            Helper.attrText(node, "anstid").ifPresent(builder::employmentId);
             Helper.attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
             Helper.attrText(node, "delete").map(Boolean::valueOf).ifPresent(builder::delete);
             Helper.nodeText(node, "fornamn").ifPresent(builder::firstName);

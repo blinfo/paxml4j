@@ -14,8 +14,8 @@ public class PaxHeader {
 
     public static XmlNode parse(Header entity) {
         XmlNode node = NodeFactory.createNode("header");
-        entity.format().map(s -> NodeFactory.createNode("format", s)).ifPresent(node::addChild);
         node.addChild(NodeFactory.createNode("version", entity.version()));
+        entity.format().map(s -> NodeFactory.createNode("format", s)).ifPresent(node::addChild);
         entity.timestamp().map(t -> t.toString()).map(s -> NodeFactory.createNode("datum", s)).ifPresent(node::addChild);
         entity.newExport().map(PaxNewExport::parse).ifPresent(node::addChild);
         entity.companyId().map(s -> NodeFactory.createNode("foretagid", s)).ifPresent(node::addChild);
@@ -43,7 +43,7 @@ public class PaxHeader {
 
         public static XmlNode parse(NewExport entity) {
             XmlNode node = NodeFactory.createNode("nyexport");
-            node.addChild(NodeFactory.createNode("datum", entity.date().toString()));
+            node.addAttribute("datum", entity.date().toString());
             entity.startDate().map(LocalDate::toString).map(s -> NodeFactory.createNode("datumfrom", s)).ifPresent(node::addChild);
             entity.endDate().map(LocalDate::toString).map(s -> NodeFactory.createNode("datumtom", s)).ifPresent(node::addChild);
             return node;

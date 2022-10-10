@@ -29,7 +29,7 @@ public class PaxStaff {
             entity.delete().map(b -> b.toString()).ifPresent(s -> node.addAttribute("delete", s));
             entity.firstName().map(s -> NodeFactory.createNode("fornamn", s)).ifPresent(node::addChild);
             entity.lastName().map(s -> NodeFactory.createNode("efternamn", s)).ifPresent(node::addChild);
-            entity.extraAddress().map(s -> NodeFactory.createNode("exteraadress", s)).ifPresent(node::addChild);
+            entity.extraAddress().map(s -> NodeFactory.createNode("extraadress", s)).ifPresent(node::addChild);
             entity.postalAddress().map(s -> NodeFactory.createNode("postadress", s)).ifPresent(node::addChild);
             entity.zipCode().map(s -> NodeFactory.createNode("postnr", s)).ifPresent(node::addChild);
             entity.city().map(s -> NodeFactory.createNode("ort", s)).ifPresent(node::addChild);

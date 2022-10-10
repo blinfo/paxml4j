@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><paxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.paxml.se/2.0/paxml.xsd">
+   <header>
+      <version>2.0</version>
+      <format>LÖNIN</format>
+      <nyexport datum="2022-10-10"/>
+      <foretagid>14610</foretagid>
+   </header>
+   <tidtransaktioner>
+      <tidtrans anstid="002">
+         <tidkod>OB1</tidkod>
+         <datum>2022-10-03</datum>
+         <timmar>4.0</timmar>
+      </tidtrans>
+      <tidtrans anstid="002">
+         <tidkod>TID</tidkod>
+         <datum>2022-10-03</datum>
+         <timmar>4.0</timmar>
+      </tidtrans>
+      <tidtrans anstid="002">
+         <tidkod>TJL</tidkod>
+         <datum>2022-10-04</datum>
+         <timmar>8.0</timmar>
+      </tidtrans>
+      <tidtrans persnr="198209010001">
+         <tidkod>NV1</tidkod>
+         <datum>2022-10-03</datum>
+         <timmar>2.0</timmar>
+      </tidtrans>
+      <tidtrans persnr="198209010001">
+         <tidkod>TID</tidkod>
+         <datum>2022-10-03</datum>
+         <timmar>6.0</timmar>
+      </tidtrans>
+      <tidtrans persnr="198209010001">
+         <tidkod>TID</tidkod>
+         <datum>2022-10-04</datum>
+         <timmar>4.0</timmar>
+      </tidtrans>
+      <tidtrans persnr="198209010001">
+         <tidkod>TID</tidkod>
+         <datum>2022-10-06</datum>
+         <timmar>8.0</timmar>
+      </tidtrans>
+      <tidtrans persnr="198209010001">
+         <tidkod>TJL</tidkod>
+         <datum>2022-10-04</datum>
+         <timmar>4.0</timmar>
+      </tidtrans>
+   </tidtransaktioner>
+   <lonetransaktioner>
+      <lonetrans anstid="002">
+         <lonart>091</lonart>
+         <datum>2022-10-03</datum>
+         <antal>45.0</antal>
+      </lonetrans>
+      <lonetrans persnr="198209010001">
+         <lonart>092</lonart>
+         <datum>2022-10-05</datum>
+         <belopp>600.0</belopp>
+      </lonetrans>
+   </lonetransaktioner>
+   <personal>
+      <person anstid="002">
+         <fornamn>Arvid</fornamn>
+         <efternamn>Lundgren</efternamn>
+         <postadress/>
+         <ort/>
+         <hemtelefon>0707-777879</hemtelefon>
+         <epostarb>arvid.lundgren@bygglet.com</epostarb>
+         <anstform>Tillsvidareanställning</anstform>
+         <lonform>TIM</lonform>
+         <info/>
+      </person>
+      <person anstid="001" persnr="198209010001">
+         <fornamn>Mårten</fornamn>
+         <efternamn>Granath</efternamn>
+         <postadress>Mårtensgata 7</postadress>
+         <ort>Stockholm</ort>
+         <mobiltelefon>0720770210</mobiltelefon>
+         <hemtelefon>0706-080933</hemtelefon>
+         <epostarb>marten.granath@bygglet.com</epostarb>
+         <anstform>Tillsvidareanställning</anstform>
+         <anstdatum>2020-01-08</anstdatum>
+         <lonform>TIM</lonform>
+         <info>Mamma</info>
+      </person>
+   </personal>
+</paxml>

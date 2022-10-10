@@ -28,9 +28,34 @@ public class PaJsonTest {
         assertEquals(json1, json2);
     }
 
+    @Test
+    public void test_write_to_json3() {
+        Root root1 = getRoot(3);
+        String json1 = PaJson.write(root1);
+        Root root2 = PaJson.read(json1);
+        String json2 = PaJson.write(root2);
+        assertEquals(json1, json2);
+    }
+
+    @Test
+    public void test_write_to_json4() {
+        Root root1 = getRoot(4);
+        String json1 = PaJson.write(root1);
+        Root root2 = PaJson.read(json1);
+        String json2 = PaJson.write(root2);
+        assertEquals(json1, json2);
+    }
+
     private static Root getRoot(int i) {
-        if (i == 1) {
-            return PaXml.read(PaXmlTest.class.getResourceAsStream("/Workify_DEMOBOLAGET_TimeRegistrationexport (5).xml"));
+        switch (i) {
+            case 1:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/Workify_DEMOBOLAGET_TimeRegistrationexport (5).xml"));
+            case 2:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/PAXml 2.0.pax"));
+            case 3:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/DEMO - 2022-10-01-2022-10-31 (1).pax"));
+            case 4:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/DEMO - 2022-10-01-2022-10-31.xml"));
         }
         return PaXml.read(PaXmlTest.class.getResourceAsStream("/PAXml 2.0.pax"));
     }
