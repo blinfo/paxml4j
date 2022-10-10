@@ -42,3 +42,4 @@ hs_err_pid*
 /src/test/resources/PAXml/PAXml 2.0.pdf
 /src/test/resources/PAXml/paxml.xsd
 !/docs/PAXml.zip
+/src/main/java/paxml4j/Main.java
