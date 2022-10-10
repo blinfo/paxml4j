@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<paxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.paxml.se/2.0/paxml.xsd">
+    <header>
+        <format>LÖNIN</format>
+        <version>2.0</version>
+        <datum>2022-09-20T09:49:30.0374174+02:00</datum>
+        <foretagid>30</foretagid>
+        <foretagorgnr>151515-1515</foretagorgnr>
+        <foretagnamn>DEMOBOLAGET</foretagnamn>
+        <postadress>Byggatan 1</postadress>
+        <postnr>11111</postnr>
+        <ort>NyStad</ort>
+        <land>Sverige</land>
+        <programnamn>Workify</programnamn>
+    </header>
+    <tidtransaktioner>
+        <tidtrans postid="69684" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-01</datum>
+            <timmar>8.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69685" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-02</datum>
+            <timmar>8.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69686" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-03</datum>
+            <timmar>8.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69687" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-04</datum>
+            <timmar>8.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69688" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-05</datum>
+            <timmar>8.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69689" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-06</datum>
+            <timmar>8.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69690" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-07</datum>
+            <timmar>8.5</timmar>
+        </tidtrans>
+        <tidtrans postid="67145" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-08</datum>
+            <timmar>6.01666666666667</timmar>
+        </tidtrans>
+        <tidtrans postid="67146" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-08</datum>
+            <timmar>5</timmar>
+        </tidtrans>
+        <tidtrans postid="69694" anstid="1234">
+            <tidkod>ÖT1</tidkod>
+            <datum>2022-09-08</datum>
+            <timmar>1.56666666666667</timmar>
+        </tidtrans>
+        <tidtrans postid="69692" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-09</datum>
+            <timmar>8.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69698" anstid="1234">
+            <tidkod>JR1</tidkod>
+            <datum>2022-09-12</datum>
+            <timmar>12</timmar>
+        </tidtrans>
+        <tidtrans postid="69696" anstid="1234">
+            <tidkod>FPE</tidkod>
+            <datum>2022-09-13</datum>
+            <timmar>9.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69697" anstid="1234">
+            <tidkod>FR1</tidkod>
+            <datum>2022-09-14</datum>
+            <timmar>9.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69699" anstid="1234">
+            <tidkod>KOM</tidkod>
+            <datum>2022-09-15</datum>
+            <timmar>8</timmar>
+        </tidtrans>
+        <tidtrans postid="69700" anstid="1234">
+            <tidkod>SEM</tidkod>
+            <datum>2022-09-16</datum>
+            <timmar>9.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69328" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-19</datum>
+            <timmar>2</timmar>
+        </tidtrans>
+        <tidtrans postid="69701" anstid="1234">
+            <tidkod>SJK</tidkod>
+            <datum>2022-09-20</datum>
+            <timmar>9.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69702" anstid="1234">
+            <tidkod>TJL</tidkod>
+            <datum>2022-09-21</datum>
+            <timmar>9.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69703" anstid="1234">
+            <tidkod>VAB</tidkod>
+            <datum>2022-09-21</datum>
+            <timmar>9.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69704" anstid="1234">
+            <tidkod>ÖK1</tidkod>
+            <datum>2022-09-22</datum>
+            <timmar>3.5</timmar>
+        </tidtrans>
+        <tidtrans postid="69705" anstid="1234">
+            <tidkod>ARB</tidkod>
+            <datum>2022-09-22</datum>
+            <timmar>13</timmar>
+        </tidtrans>
+        <tidtrans postid="69706" anstid="1234">
+            <tidkod>ÖK2</tidkod>
+            <datum>2022-09-23</datum>
+            <timmar>2</timmar>
+        </tidtrans>
+        <tidtrans postid="69707" anstid="1234">
+            <tidkod>ÖT1</tidkod>
+            <datum>2022-09-23</datum>
+            <timmar>2</timmar>
+        </tidtrans>
+        <tidtrans postid="69708" anstid="1234">
+            <tidkod>ÖT2</tidkod>
+            <datum>2022-09-23</datum>
+            <timmar>2</timmar>
+        </tidtrans>
+    </tidtransaktioner>
+    <lonetransaktioner>
+        <lonetrans postid="38" anstid="44">
+            <lonkod>MILPRI_FRI</lonkod>
+            <benamning>Milersättning privatbil - skattefri</benamning>
+            <kommentar />
+            <datum>2022-09-20</datum>
+            <antal>10</antal>
+            <apris>18.5</apris>
+            <belopp>185.0</belopp>
+        </lonetrans>
+        <lonetrans postid="39" anstid="44">
+            <lonkod>INRNAT_FRI</lonkod>
+            <benamning>Inrikes nattraktamente - skattefri</benamning>
+            <kommentar />
+            <datum>2022-09-20</datum>
+            <antal>1</antal>
+            <apris>120</apris>
+            <belopp>120</belopp>
+        </lonetrans>
+        <lonetrans postid="40" anstid="44">
+            <lonkod>UTLÄGG</lonkod>
+            <benamning>Utlägg</benamning>
+            <kommentar>Diesel</kommentar>
+            <datum>2022-09-20</datum>
+            <antal>70</antal>
+            <apris>22</apris>
+            <belopp>1540</belopp>
+        </lonetrans>
+    </lonetransaktioner>
+</paxml>

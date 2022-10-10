@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<paxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.paxml.se/2.0/paxml.xsd">
+
+<!-- Header -->
+<header>
+	<format>LÖNIN</format>
+	<version>2.0</version>
+	<land>Sverige</land>
+</header>
+
+<!-- Resultatenheter -->
+<dimensioner>
+	<dimension dim="1" namn="Kostnadsställe"/>
+	<dimension dim="6" namn="Projekt"/>
+</dimensioner>
+<resultatenheter>
+	<resultatenhet dim="1" id="100" namn="Kostnadsställe 100"/>
+	<resultatenhet dim="1" id="110" namn="Kostnadsställe 110"/>
+	<resultatenhet dim="6" id="100" namn="Projekt 100"/>
+</resultatenheter>
+
+<!-- Resetransaktioner -->
+<resetransaktioner>
+	<resetrans anstid="51">
+		<tidpunkt>2012-04-01T08:00:00+02:00[Europe/Stockholm]</tidpunkt>
+		<resekod>START</resekod>
+	</resetrans>
+</resetransaktioner>
+
+<!-- Tidtransaktioner -->
+<tidtransaktioner>
+	<tidtrans anstid="101">
+		<tidkod>SJK</tidkod>
+		<datumfrom>2012-06-02</datumfrom>
+		<datumtom>2012-06-05</datumtom>
+		<omfattning>100</omfattning>
+	</tidtrans>
+	<tidtrans anstid="101">
+		<tidkod>TJL</tidkod>
+		<datumfrom>2012-06-01</datumfrom>
+		<datumtom>2012-06-01</datumtom>
+		<omfattning>100</omfattning>
+	</tidtrans>
+</tidtransaktioner>
+
+<!-- Lönetransaktioner -->
+<lonetransaktioner>
+	<lonetrans persnr="198210101237">
+		<lonart>145</lonart>
+		<antal>8.4</antal>
+		<kontonr>6510</kontonr>
+		<resenheter>
+			<resenhet dim="1" id="12"/>
+			<resenhet dim="6" id="100"/>
+		</resenheter>
+	</lonetrans>
+</lonetransaktioner>
+
+<!-- Arbetstidsschema -->
+<schematransaktioner>
+	<schema anstid="101">
+		<dag datum="2012-06-02" timmar="8"/>
+		<dag datum="2012-06-03" timmar="4.5"/>
+		<dag datum="2012-06-04" timmar="0"/>
+	</schema>
+</schematransaktioner>
+
+<!-- Personaluppgifter -->
+<personal>
+	<person anstid="51">
+		<fornamn>Siv</fornamn>
+		<efternamn>Ljunggren</efternamn>
+		<extraadress/>
+		<postadress>Föreningsgatan 33</postadress>
+		<postnr>447 34</postnr>
+		<ort>Vårgårda</ort>
+		<land>Sverige</land>
+		<mobiltelefon>070-996 96 96</mobiltelefon>
+		<arbetstelefon>0322-21298</arbetstelefon>
+		<anstdatum>1995-01-01</anstdatum>
+		<manlon datum="2010-01-01">25000</manlon>
+		<personbelopp>
+			<belopp id="P01">125</belopp>
+		</personbelopp>
+		<sysgrad>100</sysgrad>
+	</person>
+</personal>
+</paxml>

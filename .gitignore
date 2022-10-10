@@ -21,3 +21,23 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/target/
+/src/main/resources/export-2022-10-04T13_04_01.191Z.pax
+/src/main/resources/doc1.json
+/src/main/resources/doc2.xml
+/src/main/resources/demo-doc2.xml
+/src/main/resources/doc1.xml
+/src/main/resources/demo-doc1.xml
+/src/main/resources/Workify_DEMOBOLAGET_TimeRegistrationexport (5).xml
+/src/main/resources/paxml-json.json
+!/src/main/resources/PAXml.zip
+/src/test/resources/doc1.json
+/src/test/resources/export-2022-10-04T13_04_01.191Z.pax
+/src/test/resources/demo-doc2.xml
+/src/test/resources/demo-doc1.xml
+/src/test/resources/doc1.xml
+/src/test/resources/paxml-json.json
+/src/test/resources/doc2.xml
+/src/main/resources/PAXml/PAXml 2.0.pax
+/src/test/resources/PAXml/PAXml 2.0.pdf
+/src/test/resources/PAXml/paxml.xsd
