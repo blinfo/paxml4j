@@ -20,6 +20,7 @@ import xmlight.XmlNode;
  */
 public class Header implements Entity {
 
+    private static final String VERSION = "2.0";
     private final String format;
     @JsonSerialize(using = TemporalSerializer.class)
     private final Temporal timestamp;
@@ -122,7 +123,7 @@ public class Header implements Entity {
     }
 
     public String version() {
-        return "2.0";
+        return VERSION;
     }
 
     public Optional<String> format() {

@@ -1,0 +1,85 @@
+{
+    "header": {
+        "format": "LÖNIN",
+        "country": "Sverige"
+    },
+    "dimensions": [{
+            "name": "Kostnadsställe",
+            "dimension": 1
+        }, {
+            "name": "Projekt",
+            "dimension": 6
+        }],
+    "profitCenters": [{
+            "dimension": 1,
+            "id": "100",
+            "name": "Kostnadsställe 100"
+        }, {
+            "dimension": 1,
+            "id": "110",
+            "name": "Kostnadsställe 110"
+        }, {
+            "dimension": 6,
+            "id": "100",
+            "name": "Projekt 100"
+        }],
+    "codes": [],
+    "travelTransactions": {
+        "transactions": [{
+                "dateTime": "2012-04-01T08:00+02:00[Europe/Stockholm]",
+                "travelCode": "START",
+                "employmentId": "51",
+                "participants": [],
+                "profitCenters": []
+            }]
+    },
+    "timeTransactions": {
+        "done": [],
+        "attested": [],
+        "transactions": [{
+                "employmentId": "101",
+                "timeCode": "SICKNESS",
+                "startDate": "2012-06-02",
+                "endDate": "2012-06-05",
+                "extentPercentage": 100.0,
+                "profitCenters": []
+            }, {
+                "employmentId": "101",
+                "timeCode": "OFF_DUTY",
+                "startDate": "2012-06-01",
+                "endDate": "2012-06-01",
+                "extentPercentage": 100.0,
+                "profitCenters": []
+            }]
+    },
+    "salaryTransactions": {
+        "transactions": [{
+                "personalIdentityNumber": "198210101237",
+                "typeOfSalary": "145",
+                "quantity": 8.4,
+                "accountNumber": "6510",
+                "profitCenters": [{
+                        "dimension": 1,
+                        "id": "12"
+                    }, {
+                        "dimension": 6,
+                        "id": "100"
+                    }]
+            }]
+    },
+    "schemeTransactions": {
+        "transactions": [{
+                "employmentId": "101",
+                "days": [{
+                        "date": "2012-06-02",
+                        "hours": 8.0
+                    }, {
+                        "date": "2012-06-03",
+                        "hours": 4.5
+                    }, {
+                        "date": "2012-06-04",
+                        "hours": 0.0
+                    }]
+            }]
+    }
+}

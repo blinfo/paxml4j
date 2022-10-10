@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<paxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.paxml.se/2.0/paxml.xsd">
+    <header>
+        <format>LÖNIN</format>
+        <version>2.0</version>
+        <land>Sverige</land>
+    </header>
+    <dimensioner>
+        <dimension dim="1" namn="Kostnadsställe"/>
+        <dimension dim="6" namn="Projekt"/>
+    </dimensioner>
+    <resultatenheter>
+        <resultatenhet id="100" namn="Kostnadsställe 100" dim="1"/>
+        <resultatenhet id="110" namn="Kostnadsställe 110" dim="1"/>
+        <resultatenhet id="100" namn="Projekt 100" dim="6"/>
+    </resultatenheter>
+    <resetransaktioner>
+        <resetrans anstid="51">
+            <tidpunkt>2012-04-01T08:00+02:00[Europe/Stockholm]</tidpunkt>
+            <resekod>START</resekod>
+        </resetrans>
+    </resetransaktioner>
+    <tidtransaktioner>
+        <tidtrans anstid="101">
+            <tidkod>SJK</tidkod>
+            <datumfrom>2012-06-02</datumfrom>
+            <datumtom>2012-06-05</datumtom>
+            <omfattning>100.0</omfattning>
+        </tidtrans>
+        <tidtrans anstid="101">
+            <tidkod>TJL</tidkod>
+            <datumfrom>2012-06-01</datumfrom>
+            <datumtom>2012-06-01</datumtom>
+            <omfattning>100.0</omfattning>
+        </tidtrans>
+    </tidtransaktioner>
+    <lonetransaktioner>
+        <lonetrans persnr="198210101237">
+            <lonart>145</lonart>
+            <antal>8.4</antal>
+            <kontonr>6510</kontonr>
+            <resenheter>
+                <resenhet id="12" dim="1"/>
+                <resenhet id="100" dim="6"/>
+            </resenheter>
+        </lonetrans>
+    </lonetransaktioner>
+    <schematransaktioner>
+        <schema anstid="101">
+            <dag datum="2012-06-02" timmar="8.0"/>
+            <dag datum="2012-06-03" timmar="4.5"/>
+            <dag datum="2012-06-04" timmar="0.0"/>
+        </schema>
+    </schematransaktioner>
+</paxml>
