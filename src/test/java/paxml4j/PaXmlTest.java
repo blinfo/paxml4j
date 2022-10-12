@@ -47,6 +47,15 @@ public class PaXmlTest {
         assertEquals(doc1.toString(), doc2.toString());
     }
 
+    @Test
+    public void test_two_conversions_is_unchanged5() {
+        Root root1 = getRoot(4);
+        XmlDocument doc1 = PaXml.write(root1);
+        Root root2 = PaXml.read(doc1);
+        XmlDocument doc2 = PaXml.write(root2);
+        assertEquals(doc1.toString(), doc2.toString());
+    }
+
     private static Root getRoot(int i) {
         switch (i) {
             case 1:
@@ -57,6 +66,8 @@ public class PaXmlTest {
                 return PaXml.read(PaXmlTest.class.getResourceAsStream("/DEMO - 2022-10-01-2022-10-31 (1).pax"));
             case 4:
                 return PaXml.read(PaXmlTest.class.getResourceAsStream("/DEMO - 2022-10-01-2022-10-31.xml"));
+            case 5:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/paxml_salary_1665487846.xml"));
         }
         return PaXml.read(PaXmlTest.class.getResourceAsStream("/PAXml 2.0.pax"));
     }

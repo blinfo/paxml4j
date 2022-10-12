@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<paxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.paxml.se/2.0/paxml.xsd">
+  <header>
+    <version>2.0</version>
+    <format>LÖNIN</format>
+    <foretagnamn>Palm AB</foretagnamn>
+    <foretagorgnr>951110-2411</foretagorgnr>
+    <programnamn>Fieldly AB</programnamn>
+  </header>
+  <koder>
+    <kod id="ARB" namn="Normal arbetstid"/>
+    <kod id="ÖT1" namn="Övertid"/>
+    <kod id="RE1" namn="Restid"/>
+    <kod id="SJK" namn="Sjuk"/>
+  </koder>
+  <dimensioner>
+    <dimension dim="6" namn="Objekt"/>
+  </dimensioner>
+  <resultatenheter>
+    <resultatenhet dim="6" id="PR339" namn="ICA "/>
+    <resultatenhet dim="6" id="P120" namn="Hyllie BRF"/>
+    <resultatenhet dim="6" id="AO1231" namn="snickeri hemma hos john. "/>
+    <resultatenhet dim="6" id="AO1209" namn="Service Ericsson Stockholm "/>
+    <resultatenhet dim="6" id="AO1232" namn="solcellsinstallation hemma hos palm"/>
+    <resultatenhet dim="6" id="AO1233" namn="felsökning hos palm "/>
+    <resultatenhet dim="6" id="AO1235" namn="felsökning hos David"/>
+    <resultatenhet dim="6" id="AO1236" namn="hem till palm och fixa i köket. "/>
+    <resultatenhet dim="6" id="AO1229" namn="Installation av värmepump "/>
+    <resultatenhet dim="6" id="AO1238" namn="Byta lås - datum ej beslutat "/>
+    <resultatenhet dim="6" id="AO1237" namn="hem till Palm och byt lås på dörr"/>
+    <resultatenhet dim="6" id="AO1240" namn="kontroll på PDL Lomma"/>
+    <resultatenhet dim="6" id="AO1241" namn="Mottagningskontroll "/>
+    <resultatenhet dim="6" id="AO1242" namn="Spolning"/>
+    <resultatenhet dim="6" id="PR341" namn="Badrumsrenovering"/>
+    <resultatenhet dim="6" id="AO1246" namn="Felsökning i kök hos Erik "/>
+    <resultatenhet dim="6" id="AO1247" namn="felsökning hemma hos palm"/>
+    <resultatenhet dim="6" id="AO1248" namn="Felsökning hos Erik "/>
+    <resultatenhet dim="6" id="AO1249" namn="felsökning hemma hos palm "/>
+    <resultatenhet dim="6" id="AO1253" namn="felsökning hemma hos palm"/>
+  </resultatenheter>
+  <tidtransaktioner>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-01</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="PR339"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-01</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="PR339"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-02</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="P120"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-02</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="P120"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ÖT1</tidkod>
+      <datum>2022-09-02</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="P120"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-02</datum>
+      <timmar>20.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1231"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-05</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="P120"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-06</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1209"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-06</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1232"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-09</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1233"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-09</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="P120"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>RE1</tidkod>
+      <datum>2022-09-09</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="P120"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-09</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1209"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-13</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1235"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-13</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1236"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-13</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1229"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-14</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1238"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>SJK</tidkod>
+      <datum>2022-09-13</datum>
+      <timmar>8.0</timmar>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-14</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1237"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-14</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1240"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-15</datum>
+      <timmar>0.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1241"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-15</datum>
+      <timmar>0.02</timmar>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ÖT1</tidkod>
+      <datum>2022-09-15</datum>
+      <timmar>2.0</timmar>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-15</datum>
+      <timmar>0.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1242"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-15</datum>
+      <timmar>8.0</timmar>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-15</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="PR341"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-16</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1209"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-16</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1209"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-16</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1209"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-16</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1246"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-23</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1209"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-23</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="PR341"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-23</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="P120"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-23</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1247"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-23</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1248"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-23</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1249"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-27</datum>
+      <timmar>4.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="P120"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-27</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="P120"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-28</datum>
+      <timmar>8.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="PR341"/>
+      </resenheter>
+    </tidtrans>
+    <tidtrans anstid="1">
+      <tidkod>ARB</tidkod>
+      <datum>2022-09-29</datum>
+      <timmar>2.0</timmar>
+      <resenheter>
+        <resenhet dim="6" id="AO1253"/>
+      </resenheter>
+    </tidtrans>
+  </tidtransaktioner>
+  <personal>
+    <person anstid="1">
+      <fornamn>Mattias</fornamn>
+      <efternamn>Pettersson Andersson</efternamn>
+    </person>
+  </personal>
+</paxml>

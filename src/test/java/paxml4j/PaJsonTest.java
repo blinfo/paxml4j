@@ -46,6 +46,16 @@ public class PaJsonTest {
         assertEquals(json1, json2);
     }
 
+    @Test
+    public void test_write_to_json5() {
+        Root root1 = getRoot(5);
+        String json1 = PaJson.write(root1);
+        System.out.println(json1);
+        Root root2 = PaJson.read(json1);
+        String json2 = PaJson.write(root2);
+        assertEquals(json1, json2);
+    }
+
     private static Root getRoot(int i) {
         switch (i) {
             case 1:
@@ -56,6 +66,8 @@ public class PaJsonTest {
                 return PaXml.read(PaXmlTest.class.getResourceAsStream("/DEMO - 2022-10-01-2022-10-31 (1).pax"));
             case 4:
                 return PaXml.read(PaXmlTest.class.getResourceAsStream("/DEMO - 2022-10-01-2022-10-31.xml"));
+            case 5:
+                return PaXml.read(PaXmlTest.class.getResourceAsStream("/paxml_salary_1665487846.xml"));
         }
         return PaXml.read(PaXmlTest.class.getResourceAsStream("/PAXml 2.0.pax"));
     }
