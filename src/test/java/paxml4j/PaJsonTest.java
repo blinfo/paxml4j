@@ -50,7 +50,6 @@ public class PaJsonTest {
     public void test_write_to_json5() {
         Root root1 = getRoot(5);
         String json1 = PaJson.write(root1);
-        System.out.println(json1);
         Root root2 = PaJson.read(json1);
         String json2 = PaJson.write(root2);
         assertEquals(json1, json2);

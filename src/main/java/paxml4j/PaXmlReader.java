@@ -1,7 +1,5 @@
 package paxml4j;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.*;
 import java.nio.charset.*;
 import paxml4j.domain.Root;
@@ -14,6 +12,7 @@ import xmlight.*;
 class PaXmlReader {
 
     private static final String ENCODING_ATTR = "encoding=\"";
+    private static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 
     static Root read(InputStream source) {
         try {
@@ -45,8 +44,12 @@ class PaXmlReader {
         if (header.contains(ENCODING_ATTR)) {
             String encoding = header.substring(header.indexOf(ENCODING_ATTR) + ENCODING_ATTR.length());
             encoding = encoding.substring(0, encoding.indexOf("\""));
-            return Charset.forName(encoding);
+            try {
+                return Charset.forName(encoding);
+            } catch (IllegalArgumentException ex) {
+                throw new Paxml4jException(ex);
+            }
         }
-        return StandardCharsets.UTF_8;
+        return DEFAULT_CHARSET;
     }
 }
