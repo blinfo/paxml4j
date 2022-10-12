@@ -16,7 +16,7 @@ public class PaXml {
     }
 
     public static Root read(InputStream source) {
-        return PaxReader.read(source);
+        return PaXmlReader.read(source);
     }
 
     public static XmlDocument write(Root root) {

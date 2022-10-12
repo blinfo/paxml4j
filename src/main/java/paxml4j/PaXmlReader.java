@@ -11,7 +11,7 @@ import xmlight.*;
  *
  * @author hakan
  */
-class PaxReader {
+class PaXmlReader {
 
     private static final String ENCODING_ATTR = "encoding=\"";
 
