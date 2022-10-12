@@ -12,8 +12,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import paxml4j.Paxml4jException;
-import paxml4j.io.LocalDateDeserializer;
-import paxml4j.io.LocalDateSerializer;
+import paxml4j.json.io.LocalDateDeserializer;
+import paxml4j.json.io.LocalDateSerializer;
 import paxml4j.util.Helper;
 import xmlight.XmlNode;
 

@@ -1,4 +1,4 @@
-package paxml4j.io;
+package paxml4j.json.io;
 
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;

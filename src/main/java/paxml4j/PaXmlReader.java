@@ -17,13 +17,15 @@ class PaXmlReader {
 
     static Root read(InputStream source) {
         try {
-            byte[] content = source.readAllBytes();
-            String contentString = contentString(content);
-            XmlDocument doc = new XmlDocument(new DocumentToXmlNodeParser(contentString).parse());
-            return Root.of(doc.getRoot());
+            XmlNode root = new DocumentToXmlNodeParser(contentString(source.readAllBytes())).parse();
+            return read(new XmlDocument(root));
         } catch (IOException ex) {
             throw new Paxml4jException("Could not parse input stream", ex);
         }
+    }
+
+    static Root read(XmlDocument doc) {
+        return Root.of(doc.getRoot());
     }
 
     private static String contentString(byte[] source) {
@@ -35,7 +37,7 @@ class PaXmlReader {
     }
 
     private static Charset charset(byte[] source) {
-        String header = new String(source).split("\n")[0];
+        String header = new String(source).split(">")[0];
         return charset(header);
     }
 

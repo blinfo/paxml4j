@@ -12,7 +12,7 @@ import xmlight.XmlDocument;
 public class PaXml {
 
     public static Root read(XmlDocument doc) {
-        return Root.of(doc.getRoot());
+        return PaXmlReader.read(doc);
     }
 
     public static Root read(InputStream source) {

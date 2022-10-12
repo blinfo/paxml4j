@@ -8,10 +8,10 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.LocalDate;
 import java.time.temporal.Temporal;
 import java.util.Optional;
-import paxml4j.io.LocalDateDeserializer;
-import paxml4j.io.LocalDateSerializer;
-import paxml4j.io.TemporalDeserializer;
-import paxml4j.io.TemporalSerializer;
+import paxml4j.json.io.LocalDateDeserializer;
+import paxml4j.json.io.LocalDateSerializer;
+import paxml4j.json.io.TemporalDeserializer;
+import paxml4j.json.io.TemporalSerializer;
 import xmlight.XmlNode;
 
 /**
