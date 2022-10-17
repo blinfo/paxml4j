@@ -1,19 +1,13 @@
 package paxml4j.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import paxml4j.util.Helper;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.*;
 import java.math.BigDecimal;
 import java.time.temporal.Temporal;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import paxml4j.json.io.TemporalDeserializer;
-import paxml4j.json.io.TemporalSerializer;
+import java.util.*;
+import java.util.stream.*;
+import paxml4j.json.io.*;
+import paxml4j.util.Helper;
 import xmlight.XmlNode;
 
 /**
@@ -451,7 +445,7 @@ public class TravelTransactions implements Entity {
         MILE_PRIVATE("MIL_PRI"),
         MILE_COMPANY("MIL_FTG"),
         MILE_SUPPLIED("MIL_TJT"),
-        MILE_DIS("MIL_DIS"),
+        MILE_DIESEL("MIL_DIS"),
         DISBURSEMENT("UTLÄGG"),
         REPRESENTATION_SIMPLE("REP_ENK"),
         REPRESENTATION_LUNCH("REP_LUNCH"),
@@ -470,7 +464,10 @@ public class TravelTransactions implements Entity {
         }
 
         public static TravelCode find(String text) {
-            return Stream.of(values()).filter(tc -> tc.name().equalsIgnoreCase(text) || tc.code().equalsIgnoreCase(text)).findFirst().orElseThrow();
+            return Stream.of(values())
+                    .filter(tc -> tc.name().equalsIgnoreCase(text) || tc.code().equalsIgnoreCase(text))
+                    .findFirst()
+                    .orElseThrow();
         }
     }
 

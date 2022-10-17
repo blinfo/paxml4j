@@ -869,9 +869,9 @@ public class SalaryPayments implements Entity {
         private final List<ProfitCenter.Reference> profitCenters;
 
         @JsonCreator
-        private Transaction(@JsonProperty("accountNumber") String accountNumber, 
-                @JsonProperty("amount") BigDecimal amount, 
-                @JsonProperty("customerNumber") CustomerNumber customerNumber, 
+        private Transaction(@JsonProperty("accountNumber") String accountNumber,
+                @JsonProperty("amount") BigDecimal amount,
+                @JsonProperty("customerNumber") CustomerNumber customerNumber,
                 @JsonProperty("profitCenters") List<ProfitCenter.Reference> profitCenters) {
             this.accountNumber = accountNumber;
             this.amount = amount;
@@ -965,7 +965,10 @@ public class SalaryPayments implements Entity {
         }
 
         public static SalaryType find(String text) {
-            return Stream.of(values()).filter(st -> st.name().equalsIgnoreCase(text) || st.code().equalsIgnoreCase(text)).findFirst().orElseThrow(() -> new Paxml4jException("No SalaryType found for code: " + text));
+            return Stream.of(values())
+                    .filter(st -> st.name().equalsIgnoreCase(text) || st.code().equalsIgnoreCase(text))
+                    .findFirst()
+                    .orElseThrow(() -> new Paxml4jException("No SalaryType found for code: " + text));
         }
     }
 
@@ -984,7 +987,10 @@ public class SalaryPayments implements Entity {
         }
 
         public static TaxationType find(String text) {
-            return Stream.of(values()).filter(tt -> tt.name().equalsIgnoreCase(text) || tt.code().equalsIgnoreCase(text)).findFirst().orElseThrow(() -> new Paxml4jException("No TaxationType found for code: " + text));
+            return Stream.of(values())
+                    .filter(tt -> tt.name().equalsIgnoreCase(text) || tt.code().equalsIgnoreCase(text))
+                    .findFirst().
+                    orElseThrow(() -> new Paxml4jException("No TaxationType found for code: " + text));
         }
     }
 
@@ -1006,7 +1012,10 @@ public class SalaryPayments implements Entity {
         }
 
         public static DueType find(String text) {
-            return Stream.of(values()).filter(dt -> dt.name().equalsIgnoreCase(text) || dt.code().equalsIgnoreCase(text)).findFirst().orElseThrow(() -> new Paxml4jException("No DueType found for code: " + text));
+            return Stream.of(values())
+                    .filter(dt -> dt.name().equalsIgnoreCase(text) || dt.code().equalsIgnoreCase(text))
+                    .findFirst()
+                    .orElseThrow(() -> new Paxml4jException("No DueType found for code: " + text));
         }
     }
 

@@ -4,9 +4,7 @@ import java.math.BigDecimal;
 import java.time.temporal.Temporal;
 import java.util.stream.Collectors;
 import paxml4j.domain.SalaryPayments;
-import paxml4j.domain.Staff;
-import xmlight.NodeFactory;
-import xmlight.XmlNode;
+import xmlight.*;
 
 /**
  *

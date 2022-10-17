@@ -5,8 +5,7 @@ import java.time.LocalDate;
 import java.util.stream.Collectors;
 import paxml4j.domain.Staff;
 import paxml4j.domain.Staff.Employee;
-import xmlight.NodeFactory;
-import xmlight.XmlNode;
+import xmlight.*;
 
 /**
  *

@@ -2,8 +2,7 @@ package paxml4j;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import paxml4j.domain.Root;
 
 /**
@@ -11,7 +10,7 @@ import paxml4j.domain.Root;
  * @author hakan
  */
 public class PaJson {
-    
+
     public static Root read(InputStream source) {
         try {
             return new ObjectMapper().readValue(source, Root.class);

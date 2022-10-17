@@ -1,12 +1,9 @@
 package paxml4j.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import paxml4j.util.Helper;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import com.fasterxml.jackson.annotation.*;
+import java.util.*;
 import java.util.stream.Collectors;
+import paxml4j.util.Helper;
 import xmlight.XmlNode;
 
 /**

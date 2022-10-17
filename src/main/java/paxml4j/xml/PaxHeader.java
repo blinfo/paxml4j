@@ -3,8 +3,7 @@ package paxml4j.xml;
 import java.time.LocalDate;
 import paxml4j.domain.Header;
 import paxml4j.domain.Header.NewExport;
-import xmlight.NodeFactory;
-import xmlight.XmlNode;
+import xmlight.*;
 
 /**
  *

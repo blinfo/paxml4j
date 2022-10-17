@@ -2,8 +2,7 @@ package paxml4j.xml;
 
 import paxml4j.domain.ProfitCenter;
 import paxml4j.domain.ProfitCenter.Reference;
-import xmlight.NodeFactory;
-import xmlight.XmlNode;
+import xmlight.*;
 
 /**
  *

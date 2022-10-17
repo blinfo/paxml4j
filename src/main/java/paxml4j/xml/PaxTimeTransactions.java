@@ -4,10 +4,8 @@ import java.time.LocalDate;
 import java.time.temporal.Temporal;
 import java.util.stream.Collectors;
 import paxml4j.domain.TimeTransactions;
-import paxml4j.domain.TimeTransactions.EventItem;
-import paxml4j.domain.TimeTransactions.TimeTransaction;
-import xmlight.NodeFactory;
-import xmlight.XmlNode;
+import paxml4j.domain.TimeTransactions.*;
+import xmlight.*;
 
 /**
  *

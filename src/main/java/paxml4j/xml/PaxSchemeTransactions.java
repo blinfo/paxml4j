@@ -3,8 +3,7 @@ package paxml4j.xml;
 import java.time.temporal.Temporal;
 import java.util.stream.Collectors;
 import paxml4j.domain.SchemeTransactions;
-import xmlight.NodeFactory;
-import xmlight.XmlNode;
+import xmlight.*;
 
 /**
  *

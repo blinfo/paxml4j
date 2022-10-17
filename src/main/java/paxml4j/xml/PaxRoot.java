@@ -2,9 +2,7 @@ package paxml4j.xml;
 
 import java.util.stream.Collectors;
 import paxml4j.domain.Root;
-import xmlight.NodeFactory;
-import xmlight.XmlDocument;
-import xmlight.XmlNode;
+import xmlight.*;
 
 /**
  *
@@ -42,7 +40,7 @@ public class PaxRoot {
         entity.timeTransactions().map(PaxTimeTransactions::parse).ifPresent(root::addChild);
 
         entity.salaryTransactions().map(PaxSalaryTransactions::parse).ifPresent(root::addChild);
-        
+
         entity.schemeTransactions().map(PaxSchemeTransactions::parse).ifPresent(root::addChild);
 
         entity.staff().map(PaxStaff::parse).ifPresent(root::addChild);

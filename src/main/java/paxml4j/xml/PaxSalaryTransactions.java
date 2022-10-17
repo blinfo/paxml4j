@@ -5,8 +5,7 @@ import java.time.LocalDate;
 import java.time.temporal.Temporal;
 import java.util.stream.Collectors;
 import paxml4j.domain.SalaryTransactions;
-import xmlight.NodeFactory;
-import xmlight.XmlNode;
+import xmlight.*;
 
 /**
  *

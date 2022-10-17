@@ -1,8 +1,7 @@
 package paxml4j.xml;
 
 import paxml4j.domain.Code;
-import xmlight.NodeFactory;
-import xmlight.XmlNode;
+import xmlight.*;
 
 /**
  *

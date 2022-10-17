@@ -1,19 +1,13 @@
 package paxml4j.domain;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.*;
+import java.util.stream.*;
 import paxml4j.Paxml4jException;
-import paxml4j.json.io.LocalDateDeserializer;
-import paxml4j.json.io.LocalDateSerializer;
+import paxml4j.json.io.*;
 import paxml4j.util.Helper;
 import xmlight.XmlNode;
 
@@ -485,8 +479,8 @@ public class Staff implements Entity {
         private final BigDecimal maxAmount;
 
         @JsonCreator
-        private TaxReconciliation(@JsonProperty("percentage") Integer percentage, 
-                @JsonProperty("amount") BigDecimal amount, 
+        private TaxReconciliation(@JsonProperty("percentage") Integer percentage,
+                @JsonProperty("amount") BigDecimal amount,
                 @JsonProperty("maxAmount") BigDecimal maxAmount) {
             this.percentage = percentage;
             this.amount = amount;
@@ -558,7 +552,10 @@ public class Staff implements Entity {
         }
 
         public static SalaryType find(String text) {
-            return Stream.of(values()).filter(st -> st.name().equalsIgnoreCase(text) || st.code().equalsIgnoreCase(text)).findFirst().orElseThrow(() -> new Paxml4jException("No SalaryType found for code: " + text));
+            return Stream.of(values())
+                    .filter(st -> st.name().equalsIgnoreCase(text) || st.code().equalsIgnoreCase(text))
+                    .findFirst()
+                    .orElseThrow(() -> new Paxml4jException("No SalaryType found for code: " + text));
         }
     }
 

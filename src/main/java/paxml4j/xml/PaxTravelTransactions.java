@@ -3,8 +3,7 @@ package paxml4j.xml;
 import java.math.BigDecimal;
 import java.util.stream.Collectors;
 import paxml4j.domain.TravelTransactions;
-import xmlight.NodeFactory;
-import xmlight.XmlNode;
+import xmlight.*;
 
 /**
  *
