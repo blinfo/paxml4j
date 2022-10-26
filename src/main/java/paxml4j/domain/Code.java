@@ -30,7 +30,7 @@ public class Code implements Entity {
     }
 
     public static Code of(XmlNode node) {
-        return new Code(node.getAttribute("id"), node.getAttribute("name"), node.getAttribute("info"));
+        return new Code(node.getAttribute("id"), node.getAttribute("namn"), node.getAttribute("info"));
     }
 
     public String id() {

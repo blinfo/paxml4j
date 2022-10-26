@@ -1,0 +1,469 @@
+{
+    "header": {
+        "format": "LÖNIN",
+        "corporateIdentityNumber": "951110-2411",
+        "companyName": "Palm AB",
+        "programName": "Fieldly AB"
+    },
+    "dimensions": [{
+            "name": "Objekt",
+            "dimension": 6
+        }],
+    "profitCenters": [{
+            "dimension": 6,
+            "id": "PR339",
+            "name": "ICA "
+        }, {
+            "dimension": 6,
+            "id": "P120",
+            "name": "Hyllie BRF"
+        }, {
+            "dimension": 6,
+            "id": "AO1231",
+            "name": "snickeri hemma hos john. "
+        }, {
+            "dimension": 6,
+            "id": "AO1209",
+            "name": "Service Ericsson Stockholm "
+        }, {
+            "dimension": 6,
+            "id": "AO1232",
+            "name": "solcellsinstallation hemma hos palm"
+        }, {
+            "dimension": 6,
+            "id": "AO1233",
+            "name": "felsökning hos palm "
+        }, {
+            "dimension": 6,
+            "id": "AO1235",
+            "name": "felsökning hos David"
+        }, {
+            "dimension": 6,
+            "id": "AO1236",
+            "name": "hem till palm och fixa i köket. "
+        }, {
+            "dimension": 6,
+            "id": "AO1229",
+            "name": "Installation av värmepump "
+        }, {
+            "dimension": 6,
+            "id": "AO1238",
+            "name": "Byta lås - datum ej beslutat "
+        }, {
+            "dimension": 6,
+            "id": "AO1237",
+            "name": "hem till Palm och byt lås på dörr"
+        }, {
+            "dimension": 6,
+            "id": "AO1240",
+            "name": "kontroll på PDL Lomma"
+        }, {
+            "dimension": 6,
+            "id": "AO1241",
+            "name": "Mottagningskontroll "
+        }, {
+            "dimension": 6,
+            "id": "AO1242",
+            "name": "Spolning"
+        }, {
+            "dimension": 6,
+            "id": "PR341",
+            "name": "Badrumsrenovering"
+        }, {
+            "dimension": 6,
+            "id": "AO1246",
+            "name": "Felsökning i kök hos Erik "
+        }, {
+            "dimension": 6,
+            "id": "AO1247",
+            "name": "felsökning hemma hos palm"
+        }, {
+            "dimension": 6,
+            "id": "AO1248",
+            "name": "Felsökning hos Erik "
+        }, {
+            "dimension": 6,
+            "id": "AO1249",
+            "name": "felsökning hemma hos palm "
+        }, {
+            "dimension": 6,
+            "id": "AO1253",
+            "name": "felsökning hemma hos palm"
+        }],
+    "codes": [{
+            "id": "ARB",
+            "name": "Normal arbetstid"
+        }, {
+            "id": "ÖT1",
+            "name": "Övertid"
+        }, {
+            "id": "RE1",
+            "name": "Restid"
+        }, {
+            "id": "SJK",
+            "name": "Sjuk"
+        }],
+    "timeTransactions": {
+        "done": [],
+        "attested": [],
+        "transactions": [{
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-01",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "PR339"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-01",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "PR339"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-02",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "P120"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-02",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "P120"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "OVERTIME_PAYMENT_1",
+                "date": "2022-09-02",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "P120"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-02",
+                "hours": 20.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1231"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-05",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "P120"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-06",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1209"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-06",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1232"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-09",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1233"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-09",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "P120"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "TRAVELLING_TIME_1",
+                "date": "2022-09-09",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "P120"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-09",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1209"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-13",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1235"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-13",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1236"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-13",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1229"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-14",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1238"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "SICKNESS",
+                "date": "2022-09-13",
+                "hours": 8.0,
+                "profitCenters": []
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-14",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1237"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-14",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1240"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-15",
+                "hours": 0.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1241"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-15",
+                "hours": 0.02,
+                "profitCenters": []
+            }, {
+                "employmentId": "1",
+                "timeCode": "OVERTIME_PAYMENT_1",
+                "date": "2022-09-15",
+                "hours": 2.0,
+                "profitCenters": []
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-15",
+                "hours": 0.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1242"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-15",
+                "hours": 8.0,
+                "profitCenters": []
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-15",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "PR341"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-16",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1209"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-16",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1209"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-16",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1209"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-16",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1246"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-23",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1209"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-23",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "PR341"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-23",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "P120"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-23",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1247"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-23",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1248"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-23",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1249"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-27",
+                "hours": 4.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "P120"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-27",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "P120"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-28",
+                "hours": 8.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "PR341"
+                    }]
+            }, {
+                "employmentId": "1",
+                "timeCode": "HOURLY_WAGE",
+                "date": "2022-09-29",
+                "hours": 2.0,
+                "profitCenters": [{
+                        "dimension": 6,
+                        "id": "AO1253"
+                    }]
+            }]
+    },
+    "staff": {
+        "employees": [{
+                "employmentId": "1",
+                "firstName": "Mattias",
+                "lastName": "Pettersson Andersson",
+                "taxFreeAmounts": [],
+                "employeeTexts": [],
+                "profitCenters": []
+            }]
+    }
+}
