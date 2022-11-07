@@ -22,6 +22,9 @@ public class Helper {
             OFFSET_DATE_TIME_PATTERN = Pattern.compile(DATE + "T" + OFFSET_TIME),
             ZONED_DATE_TIME_PATTERN = Pattern.compile(DATE + "T" + OFFSET_TIME + "\\[[a-zA-Z]+\\/[a-zA-Z]+\\]");
 
+    private Helper() {
+    }
+
     public static Optional<String> attrText(XmlNode parent, String attributeName) {
         return Optional.ofNullable(parent.getAttribute(attributeName));
     }
