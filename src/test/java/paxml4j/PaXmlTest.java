@@ -2,7 +2,6 @@ package paxml4j;
 
 import java.io.IOException;
 import java.nio.charset.*;
-import java.util.logging.*;
 import org.apache.commons.io.input.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
