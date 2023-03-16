@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    options {
-        disableConcurrentBuilds()
-    }
     stages {
         stage('Build and deploy artifact'){
             agent {
@@ -12,13 +9,8 @@ pipeline {
                 }
             }
             steps {
-                sh "cd box-fnx && mvn clean package deploy -DskipITs"
+                sh 'mvn clean package deploy -DskipITs'
             }
         }   
-    }
-    post {
-        failure {
-            emailext body: '${DEFAULT_CONTENT}', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: '${DEFAULT_SUBJECT}'
-        }
     }
 }
