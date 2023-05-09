@@ -10,6 +10,7 @@ import java.util.stream.*;
 import paxml4j.Paxml4jException;
 import paxml4j.json.io.*;
 import paxml4j.util.Helper;
+import static paxml4j.util.Helper.*;
 import xmlight.XmlNode;
 
 /**
@@ -30,7 +31,7 @@ public class SalaryTransactions implements Entity {
     }
 
     public static SalaryTransactions of(XmlNode node) {
-        return of(node.getChildren("lonetrans").stream().map(Transaction::of).collect(Collectors.toList()));
+        return of(node.getChildren("lonetrans").stream().map(Transaction::of).toList());
     }
 
     public List<Transaction> transactions() {
@@ -120,31 +121,31 @@ public class SalaryTransactions implements Entity {
 
         public static Transaction of(XmlNode node) {
             Builder builder = builder();
-            Helper.attrText(node, "postid").map(Integer::valueOf).ifPresent(builder::postId);
-            Helper.attrText(node, "anstid").ifPresent(builder::employmentId);
-            Helper.attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
-            Helper.nodeText(node, "lonkod").map(SalaryCode::find).ifPresent(builder::salaryCode);
-            Helper.nodeText(node, "lonart").ifPresent(builder::typeOfSalary);
-            Helper.nodeText(node, "benamning").ifPresent(builder::nameOfSalary);
-            Helper.nodeText(node, "kommentar").ifPresent(builder::comment);
-            Helper.nodeText(node, "datum").map(LocalDate::parse).ifPresent(builder::date);
-            Helper.nodeText(node, "datumfrom").map(Helper::temporalFromText).ifPresent(builder::startDateTime);
-            Helper.nodeText(node, "datumtom").map(Helper::temporalFromText).ifPresent(builder::endDateTime);
-            Helper.nodeText(node, "antal").map(Double::valueOf).ifPresent(builder::quantity);
-            Helper.nodeText(node, "apris").map(BigDecimal::new).ifPresent(builder::unitPrice);
-            Helper.nodeText(node, "belopp").map(BigDecimal::new).ifPresent(builder::amount);
-            Helper.nodeText(node, "varugrupp").ifPresent(builder::typeOfGoods);
-            Helper.nodeText(node, "moms").map(BigDecimal::new).ifPresent(builder::vat);
-            Helper.nodeText(node, "samlingsid").ifPresent(builder::summaryId);
-            Helper.nodeText(node, "kontonr").ifPresent(builder::accountNumber);
-            Helper.childNode(node, "kundnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
+            attrText(node, "postid").map(Integer::valueOf).ifPresent(builder::postId);
+            attrText(node, "anstid").ifPresent(builder::employmentId);
+            attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
+            nodeText(node, "lonkod").map(SalaryCode::find).ifPresent(builder::salaryCode);
+            nodeText(node, "lonart").ifPresent(builder::typeOfSalary);
+            nodeText(node, "benamning").ifPresent(builder::nameOfSalary);
+            nodeText(node, "kommentar").ifPresent(builder::comment);
+            nodeText(node, "datum").map(LocalDate::parse).ifPresent(builder::date);
+            nodeText(node, "datumfrom").map(Helper::temporalFromText).ifPresent(builder::startDateTime);
+            nodeText(node, "datumtom").map(Helper::temporalFromText).ifPresent(builder::endDateTime);
+            nodeText(node, "antal").map(Double::valueOf).ifPresent(builder::quantity);
+            nodeText(node, "apris").map(BigDecimal::new).ifPresent(builder::unitPrice);
+            nodeText(node, "belopp").map(BigDecimal::new).ifPresent(builder::amount);
+            nodeText(node, "varugrupp").ifPresent(builder::typeOfGoods);
+            nodeText(node, "moms").map(BigDecimal::new).ifPresent(builder::vat);
+            nodeText(node, "samlingsid").ifPresent(builder::summaryId);
+            nodeText(node, "kontonr").ifPresent(builder::accountNumber);
+            childNode(node, "kundnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
             if (node.hasChildNamed("resenheter")) {
                 builder.profitCenters(node.getChild("resenheter").getChildren("resenhet")
                         .stream()
                         .map(ProfitCenter.Reference::of)
-                        .collect(Collectors.toList()));
+                        .toList());
             }
-            Helper.nodeText(node, "info").ifPresent(builder::info);
+            nodeText(node, "info").ifPresent(builder::info);
             return builder.build();
         }
 

@@ -2,7 +2,6 @@ package paxml4j.xml;
 
 import java.math.BigDecimal;
 import java.time.temporal.Temporal;
-import java.util.stream.Collectors;
 import paxml4j.domain.SalaryPayments;
 import xmlight.*;
 
@@ -14,7 +13,7 @@ public class PaxSalaryPayements {
 
     public static XmlNode parse(SalaryPayments entity) {
         XmlNode node = NodeFactory.createNode("loneutbetalning");
-        node.addChildren(entity.payslips().stream().map(PaxPayslip::parse).collect(Collectors.toList()));
+        node.addChildren(entity.payslips().stream().map(PaxPayslip::parse).toList());
         return node;
     }
 
@@ -48,7 +47,7 @@ public class PaxSalaryPayements {
             entity.employersContributionAmount().map(BigDecimal::toString).map(s -> NodeFactory.createNode("arbavgiftbel", s)).ifPresent(node::addChild);
             if (!entity.paymentRows().isEmpty()) {
                 XmlNode rowsNode = NodeFactory.createNode("lonerader");
-                rowsNode.addChildren(entity.paymentRows().stream().map(PaxPaymentRow::parse).collect(Collectors.toList()));
+                rowsNode.addChildren(entity.paymentRows().stream().map(PaxPaymentRow::parse).toList());
                 node.addChild(rowsNode);
             }
             entity.accumulatedGrossWage().map(BigDecimal::toString).map(s -> NodeFactory.createNode("ackbruttolon", s)).ifPresent(node::addChild);
@@ -70,7 +69,7 @@ public class PaxSalaryPayements {
             entity.vacationPaymentAmountDisbursed().map(BigDecimal::toString).map(s -> NodeFactory.createNode("semlonutb", s)).ifPresent(node::addChild);
             if (!entity.transactions().isEmpty()) {
                 XmlNode accountingNode = NodeFactory.createNode("kontering");
-                accountingNode.addChildren(entity.transactions().stream().map(PaxTransaction::parse).collect(Collectors.toList()));
+                accountingNode.addChildren(entity.transactions().stream().map(PaxTransaction::parse).toList());
                 node.addChild(accountingNode);
             }
             entity.info().map(s -> NodeFactory.createNode("info", s)).ifPresent(node::addChild);
@@ -106,7 +105,7 @@ public class PaxSalaryPayements {
             entity.customerNumber().map(PaxCustomerNumber::parse).ifPresent(node::addChild);
             if (!entity.profitCenters().isEmpty()) {
                 XmlNode pcNode = NodeFactory.createNode("resenheter");
-                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).collect(Collectors.toList()));
+                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).toList());
                 node.addChild(pcNode);
             }
             entity.statisticsCode().map(s -> NodeFactory.createNode("statistikkod", s)).ifPresent(node::addChild);
@@ -125,7 +124,7 @@ public class PaxSalaryPayements {
             entity.customerNumber().map(PaxCustomerNumber::parse).ifPresent(node::addChild);
             if (!entity.profitCenters().isEmpty()) {
                 XmlNode pcNode = NodeFactory.createNode("resenheter");
-                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).collect(Collectors.toList()));
+                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).toList());
                 node.addChild(pcNode);
             }
             return node;

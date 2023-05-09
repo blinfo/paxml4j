@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.stream.*;
 import paxml4j.Paxml4jException;
 import paxml4j.json.io.*;
-import paxml4j.util.Helper;
+import static paxml4j.util.Helper.*;
 import xmlight.XmlNode;
 
 /**
@@ -29,7 +29,7 @@ public class Staff implements Entity {
     }
 
     public static Staff of(XmlNode node) {
-        return of(node.getChildren("person").stream().map(Employee::of).collect(Collectors.toList()));
+        return of(node.getChildren("person").stream().map(Employee::of).toList());
     }
 
     public List<Employee> employees() {
@@ -169,51 +169,51 @@ public class Staff implements Entity {
 
         public static Employee of(XmlNode node) {
             Builder builder = builder();
-            Helper.attrText(node, "anstid").ifPresent(builder::employmentId);
-            Helper.attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
-            Helper.attrText(node, "delete").map(Boolean::valueOf).ifPresent(builder::delete);
-            Helper.nodeText(node, "fornamn").ifPresent(builder::firstName);
-            Helper.nodeText(node, "efternamn").ifPresent(builder::lastName);
-            Helper.nodeText(node, "extraadress").ifPresent(builder::extraAddress);
-            Helper.nodeText(node, "postadress").ifPresent(builder::postalAddress);
-            Helper.nodeText(node, "postnr").ifPresent(builder::zipCode);
-            Helper.nodeText(node, "ort").ifPresent(builder::city);
-            Helper.nodeText(node, "land").ifPresent(builder::country);
-            Helper.nodeText(node, "mobiltelefon").ifPresent(builder::mobilePhone);
-            Helper.nodeText(node, "hemtelefon").ifPresent(builder::homePhone);
-            Helper.nodeText(node, "arbetstelefon").ifPresent(builder::workPhone);
-            Helper.nodeText(node, "epostarb").ifPresent(builder::workEmail);
-            Helper.nodeText(node, "eposthem").ifPresent(builder::homeEmail);
-            Helper.nodeText(node, "peronaltyp").ifPresent(builder::typeOfEmployee);
-            Helper.nodeText(node, "kategori").ifPresent(builder::category);
-            Helper.nodeText(node, "befattning").ifPresent(builder::position);
-            Helper.nodeText(node, "befattningskod").ifPresent(builder::positionCode);
-            Helper.nodeText(node, "anstform").ifPresent(builder::formOfEmployment);
-            Helper.nodeText(node, "semesteravtal").ifPresent(builder::vacationAgreement);
-            Helper.nodeText(node, "bankclearing").ifPresent(builder::bankClearingNumber);
-            Helper.nodeText(node, "bankkonto").ifPresent(builder::bankAccountNumber);
-            Helper.nodeText(node, "anstdatum").map(LocalDate::parse).ifPresent(builder::dateOfEmployment);
-            Helper.nodeText(node, "avgdatum").map(LocalDate::parse).ifPresent(builder::dateOfRetirement);
-            Helper.nodeText(node, "lonform").map(SalaryType::find).ifPresent(builder::salaryType);
-            Helper.nodeText(node, "innevarande").map(Boolean::valueOf).ifPresent(builder::salaryForPresentPeriod);
-            Helper.childNode(node, "timlon").map(DateAmount::of).ifPresent(builder::hourlySalary);
-            Helper.childNode(node, "manlon").map(DateAmount::of).ifPresent(builder::monthlySalary);
+            attrText(node, "anstid").ifPresent(builder::employmentId);
+            attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
+            attrText(node, "delete").map(Boolean::valueOf).ifPresent(builder::delete);
+            nodeText(node, "fornamn").ifPresent(builder::firstName);
+            nodeText(node, "efternamn").ifPresent(builder::lastName);
+            nodeText(node, "extraadress").ifPresent(builder::extraAddress);
+            nodeText(node, "postadress").ifPresent(builder::postalAddress);
+            nodeText(node, "postnr").ifPresent(builder::zipCode);
+            nodeText(node, "ort").ifPresent(builder::city);
+            nodeText(node, "land").ifPresent(builder::country);
+            nodeText(node, "mobiltelefon").ifPresent(builder::mobilePhone);
+            nodeText(node, "hemtelefon").ifPresent(builder::homePhone);
+            nodeText(node, "arbetstelefon").ifPresent(builder::workPhone);
+            nodeText(node, "epostarb").ifPresent(builder::workEmail);
+            nodeText(node, "eposthem").ifPresent(builder::homeEmail);
+            nodeText(node, "peronaltyp").ifPresent(builder::typeOfEmployee);
+            nodeText(node, "kategori").ifPresent(builder::category);
+            nodeText(node, "befattning").ifPresent(builder::position);
+            nodeText(node, "befattningskod").ifPresent(builder::positionCode);
+            nodeText(node, "anstform").ifPresent(builder::formOfEmployment);
+            nodeText(node, "semesteravtal").ifPresent(builder::vacationAgreement);
+            nodeText(node, "bankclearing").ifPresent(builder::bankClearingNumber);
+            nodeText(node, "bankkonto").ifPresent(builder::bankAccountNumber);
+            nodeText(node, "anstdatum").map(LocalDate::parse).ifPresent(builder::dateOfEmployment);
+            nodeText(node, "avgdatum").map(LocalDate::parse).ifPresent(builder::dateOfRetirement);
+            nodeText(node, "lonform").map(SalaryType::find).ifPresent(builder::salaryType);
+            nodeText(node, "innevarande").map(Boolean::valueOf).ifPresent(builder::salaryForPresentPeriod);
+            childNode(node, "timlon").map(DateAmount::of).ifPresent(builder::hourlySalary);
+            childNode(node, "manlon").map(DateAmount::of).ifPresent(builder::monthlySalary);
             if (node.hasChildNamed("personbelopp")) {
-                builder.taxFreeAmounts(node.getChild("personbelopp").getChildren("belopp").stream().map(TaxFreeAmount::of).collect(Collectors.toList()));
+                builder.taxFreeAmounts(node.getChild("personbelopp").getChildren("belopp").stream().map(TaxFreeAmount::of).toList());
             }
             if (node.hasChildNamed("persontexter")) {
-                builder.employeeTexts(node.getChild("persontexter").getChildren("text").stream().map(Text::of).collect(Collectors.toList()));
+                builder.employeeTexts(node.getChild("persontexter").getChildren("text").stream().map(Text::of).toList());
             }
-            Helper.childNode(node, "sysgrad").map(DateAmount::of).ifPresent(builder::degreeOfEmployment);
-            Helper.nodeText(node, "semesterdagar").map(Double::valueOf).ifPresent(builder::daysOfVacation);
-            Helper.nodeText(node, "skattetabell").map(Double::valueOf).ifPresent(builder::taxTable);
-            Helper.nodeText(node, "skattekolumn").map(Integer::valueOf).ifPresent(builder::taxColumn);
-            Helper.childNode(node, "skattekolumn").map(TaxReconciliation::of).ifPresent(builder::taxReconciliation);
-            Helper.childNode(node, "loneutmatning").map(WageDestraint::of).ifPresent(builder::wageDestraint);
+            childNode(node, "sysgrad").map(DateAmount::of).ifPresent(builder::degreeOfEmployment);
+            nodeText(node, "semesterdagar").map(Double::valueOf).ifPresent(builder::daysOfVacation);
+            nodeText(node, "skattetabell").map(Double::valueOf).ifPresent(builder::taxTable);
+            nodeText(node, "skattekolumn").map(Integer::valueOf).ifPresent(builder::taxColumn);
+            childNode(node, "skattekolumn").map(TaxReconciliation::of).ifPresent(builder::taxReconciliation);
+            childNode(node, "loneutmatning").map(WageDestraint::of).ifPresent(builder::wageDestraint);
             if (node.hasChildNamed("resenheter")) {
-                builder.profitCenters(node.getChild("resenheter").getChildren("resenhet").stream().map(ProfitCenter.Reference::of).collect(Collectors.toList()));
+                builder.profitCenters(node.getChild("resenheter").getChildren("resenhet").stream().map(ProfitCenter.Reference::of).toList());
             }
-            Helper.nodeText(node, "info").ifPresent(builder::info);
+            nodeText(node, "info").ifPresent(builder::info);
             return builder.build();
         }
 
@@ -394,7 +394,7 @@ public class Staff implements Entity {
         }
 
         public static DateAmount of(XmlNode node) {
-            return new DateAmount(new BigDecimal(node.getText()), Helper.attrText(node, "datum").map(LocalDate::parse).orElse(null));
+            return new DateAmount(new BigDecimal(node.getText()), attrText(node, "datum").map(LocalDate::parse).orElse(null));
         }
 
         public BigDecimal amount() {
@@ -428,7 +428,7 @@ public class Staff implements Entity {
         }
 
         public static TaxFreeAmount of(XmlNode node) {
-            return new TaxFreeAmount(new BigDecimal(node.getText()), node.getAttribute("id"), Helper.attrText(node, "datum").map(LocalDate::parse).orElse(null));
+            return new TaxFreeAmount(new BigDecimal(node.getText()), node.getAttribute("id"), attrText(node, "datum").map(LocalDate::parse).orElse(null));
         }
 
         public BigDecimal amount() {
@@ -492,9 +492,9 @@ public class Staff implements Entity {
         }
 
         public static TaxReconciliation of(XmlNode node) {
-            return of(Helper.attrText(node, "procent").map(Integer::valueOf).orElse(null),
-                    Helper.attrText(node, "belopp").map(BigDecimal::new).orElse(null),
-                    Helper.attrText(node, "maxbelopp").map(BigDecimal::new).orElse(null));
+            return of(attrText(node, "procent").map(Integer::valueOf).orElse(null),
+                    attrText(node, "belopp").map(BigDecimal::new).orElse(null),
+                    attrText(node, "maxbelopp").map(BigDecimal::new).orElse(null));
         }
 
         public Optional<Integer> percentage() {
@@ -526,7 +526,7 @@ public class Staff implements Entity {
         }
 
         public static WageDestraint of(XmlNode node) {
-            return of(new BigDecimal(node.getAttribute("belopp")), Helper.attrText(node, "forbeholl").map(BigDecimal::new).orElse(null));
+            return of(new BigDecimal(node.getAttribute("belopp")), attrText(node, "forbeholl").map(BigDecimal::new).orElse(null));
         }
 
         public BigDecimal amount() {

@@ -1,6 +1,5 @@
 package paxml4j.xml;
 
-import java.util.stream.Collectors;
 import paxml4j.domain.Root;
 import xmlight.*;
 
@@ -19,19 +18,19 @@ public class PaxRoot {
 
         if (!entity.dimensions().isEmpty()) {
             XmlNode dimNode = NodeFactory.createNode("dimensioner");
-            dimNode.addChildren(entity.dimensions().stream().map(PaxDimension::parse).collect(Collectors.toList()));
+            dimNode.addChildren(entity.dimensions().stream().map(PaxDimension::parse).toList());
             root.addChild(dimNode);
         }
 
         if (!entity.profitCenters().isEmpty()) {
             XmlNode pcNode = NodeFactory.createNode("resultatenheter");
-            pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter::parse).collect(Collectors.toList()));
+            pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter::parse).toList());
             root.addChild(pcNode);
         }
 
         if (!entity.codes().isEmpty()) {
             XmlNode codeNode = NodeFactory.createNode("koder");
-            codeNode.addChildren(entity.codes().stream().map(PaxCode::parse).collect(Collectors.toList()));
+            codeNode.addChildren(entity.codes().stream().map(PaxCode::parse).toList());
             root.addChild(codeNode);
         }
 

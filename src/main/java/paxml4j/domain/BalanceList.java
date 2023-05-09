@@ -5,9 +5,8 @@ import com.fasterxml.jackson.databind.annotation.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 import paxml4j.json.io.*;
-import paxml4j.util.Helper;
+import static paxml4j.util.Helper.*;
 import xmlight.XmlNode;
 
 /**
@@ -28,7 +27,7 @@ public class BalanceList implements Entity {
     }
 
     public static BalanceList of(XmlNode node) {
-        return of(node.getChildren("saldo").stream().map(Balance::of).collect(Collectors.toList()));
+        return of(node.getChildren("saldo").stream().map(Balance::of).toList());
     }
 
     public List<Balance> balances() {
@@ -111,27 +110,27 @@ public class BalanceList implements Entity {
 
         public static Balance of(XmlNode node) {
             Builder builder = builder();
-            Helper.attrText(node, "anstid").ifPresent(builder::employmentId);
-            Helper.attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
-            Helper.nodeText(node, "datum").map(LocalDate::parse).ifPresent(builder::date);
-            Helper.nodeText(node, "ackbruttolon").map(BigDecimal::new).ifPresent(builder::accumulatedGrossWage);
-            Helper.nodeText(node, "ackprelskatt").map(BigDecimal::new).ifPresent(builder::accumulatedPerliminaryTax);
-            Helper.nodeText(node, "acknettolon").map(BigDecimal::new).ifPresent(builder::accumulatedNetWage);
-            Helper.nodeText(node, "flexsaldo").map(Double::valueOf).ifPresent(builder::flexibleHoursBalance);
-            Helper.nodeText(node, "kompsaldo").map(Double::valueOf).ifPresent(builder::compensatoryLeaveBalance);
-            Helper.nodeText(node, "tidbanktim").map(Double::valueOf).ifPresent(builder::reductionOfWorkingHours);
-            Helper.nodeText(node, "tidbankbel").map(BigDecimal::new).ifPresent(builder::reductionOfWorkingHoursAmount);
-            Helper.nodeText(node, "sembettot").map(Double::valueOf).ifPresent(builder::daysOfVacationTotal);
-            Helper.nodeText(node, "sembetutb").map(Double::valueOf).ifPresent(builder::daysOfVacationDisbursed);
-            Helper.nodeText(node, "semobetot").map(Double::valueOf).ifPresent(builder::daysOfUnpaidVacationTotal);
-            Helper.nodeText(node, "semobeutb").map(Double::valueOf).ifPresent(builder::daysOfUnpaidVacationDisbursed);
-            Helper.nodeText(node, "semfortot").map(Double::valueOf).ifPresent(builder::daysOfAdvancedVacationTotal);
-            Helper.nodeText(node, "semforutb").map(Double::valueOf).ifPresent(builder::daysOfAdvancedVacationDisbursed);
-            Helper.nodeText(node, "semspatot").map(Double::valueOf).ifPresent(builder::daysOfSavedVacationTotal);
-            Helper.nodeText(node, "semspautb").map(Double::valueOf).ifPresent(builder::daysOfSavedVacationDisbursed);
-            Helper.nodeText(node, "semlontot").map(BigDecimal::new).ifPresent(builder::vacationPaymentAmountTotal);
-            Helper.nodeText(node, "semlonutb").map(BigDecimal::new).ifPresent(builder::vacationPaymentAmountDisbursed);
-            Helper.nodeText(node, "info").ifPresent(builder::info);
+            attrText(node, "anstid").ifPresent(builder::employmentId);
+            attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
+            nodeText(node, "datum").map(LocalDate::parse).ifPresent(builder::date);
+            nodeText(node, "ackbruttolon").map(BigDecimal::new).ifPresent(builder::accumulatedGrossWage);
+            nodeText(node, "ackprelskatt").map(BigDecimal::new).ifPresent(builder::accumulatedPerliminaryTax);
+            nodeText(node, "acknettolon").map(BigDecimal::new).ifPresent(builder::accumulatedNetWage);
+            nodeText(node, "flexsaldo").map(Double::valueOf).ifPresent(builder::flexibleHoursBalance);
+            nodeText(node, "kompsaldo").map(Double::valueOf).ifPresent(builder::compensatoryLeaveBalance);
+            nodeText(node, "tidbanktim").map(Double::valueOf).ifPresent(builder::reductionOfWorkingHours);
+            nodeText(node, "tidbankbel").map(BigDecimal::new).ifPresent(builder::reductionOfWorkingHoursAmount);
+            nodeText(node, "sembettot").map(Double::valueOf).ifPresent(builder::daysOfVacationTotal);
+            nodeText(node, "sembetutb").map(Double::valueOf).ifPresent(builder::daysOfVacationDisbursed);
+            nodeText(node, "semobetot").map(Double::valueOf).ifPresent(builder::daysOfUnpaidVacationTotal);
+            nodeText(node, "semobeutb").map(Double::valueOf).ifPresent(builder::daysOfUnpaidVacationDisbursed);
+            nodeText(node, "semfortot").map(Double::valueOf).ifPresent(builder::daysOfAdvancedVacationTotal);
+            nodeText(node, "semforutb").map(Double::valueOf).ifPresent(builder::daysOfAdvancedVacationDisbursed);
+            nodeText(node, "semspatot").map(Double::valueOf).ifPresent(builder::daysOfSavedVacationTotal);
+            nodeText(node, "semspautb").map(Double::valueOf).ifPresent(builder::daysOfSavedVacationDisbursed);
+            nodeText(node, "semlontot").map(BigDecimal::new).ifPresent(builder::vacationPaymentAmountTotal);
+            nodeText(node, "semlonutb").map(BigDecimal::new).ifPresent(builder::vacationPaymentAmountDisbursed);
+            nodeText(node, "info").ifPresent(builder::info);
             return builder.build();
         }
 

@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.annotation.*;
 import java.time.LocalDate;
 import java.time.temporal.Temporal;
 import java.util.*;
-import java.util.stream.Collectors;
 import paxml4j.json.io.*;
 import paxml4j.util.Helper;
+import static paxml4j.util.Helper.*;
 import xmlight.XmlNode;
 
 /**
@@ -28,7 +28,7 @@ public class SchemeTransactions implements Entity {
     }
 
     public static SchemeTransactions of(XmlNode node) {
-        return of(node.getChildren("schema").stream().map(Transaction::of).collect(Collectors.toList()));
+        return of(node.getChildren("schema").stream().map(Transaction::of).toList());
     }
 
     public List<Transaction> transactions() {
@@ -60,9 +60,9 @@ public class SchemeTransactions implements Entity {
         }
 
         public static Transaction of(XmlNode node) {
-            return of(Helper.attrText(node, "anstid").orElse(null),
-                    Helper.attrText(node, "persnr").orElse(null),
-                    node.getChildren("dag").stream().map(Day::of).collect(Collectors.toList()));
+            return of(attrText(node, "anstid").orElse(null),
+                    attrText(node, "persnr").orElse(null),
+                    node.getChildren("dag").stream().map(Day::of).toList());
         }
 
         public Optional<String> employmentId() {
@@ -113,9 +113,9 @@ public class SchemeTransactions implements Entity {
 
         public static Day of(XmlNode node) {
             return of(LocalDate.parse(node.getAttribute("datum")),
-                    Helper.attrText(node, "starttid").map(Helper::temporalFromText).orElse(null),
-                    Helper.attrText(node, "sluttid").map(Helper::temporalFromText).orElse(null),
-                    Helper.attrText(node, "timmar").map(Double::valueOf).orElse(null));
+                    attrText(node, "starttid").map(Helper::temporalFromText).orElse(null),
+                    attrText(node, "sluttid").map(Helper::temporalFromText).orElse(null),
+                    attrText(node, "timmar").map(Double::valueOf).orElse(null));
         }
 
         public LocalDate date() {

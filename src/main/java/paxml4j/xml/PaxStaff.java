@@ -2,7 +2,6 @@ package paxml4j.xml;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.stream.Collectors;
 import paxml4j.domain.Staff;
 import paxml4j.domain.Staff.Employee;
 import xmlight.*;
@@ -15,7 +14,7 @@ public class PaxStaff {
 
     public static XmlNode parse(Staff entity) {
         XmlNode node = NodeFactory.createNode("personal");
-        node.addChildren(entity.employees().stream().map(PaxEmployee::parse).collect(Collectors.toList()));
+        node.addChildren(entity.employees().stream().map(PaxEmployee::parse).toList());
         return node;
     }
 
@@ -54,12 +53,12 @@ public class PaxStaff {
             entity.monthlySalary().map(da -> PaxDateAmount.parse(da, "manlon")).ifPresent(node::addChild);
             if (!entity.taxFreeAmounts().isEmpty()) {
                 XmlNode tfNode = NodeFactory.createNode("personbelopp");
-                tfNode.addChildren(entity.taxFreeAmounts().stream().map(PaxTaxFreeAmount::parse).collect(Collectors.toList()));
+                tfNode.addChildren(entity.taxFreeAmounts().stream().map(PaxTaxFreeAmount::parse).toList());
                 node.addChild(tfNode);
             }
             if (!entity.employeeTexts().isEmpty()) {
                 XmlNode ptNode = NodeFactory.createNode("persontexter");
-                ptNode.addChildren(entity.employeeTexts().stream().map(PaxText::parse).collect(Collectors.toList()));
+                ptNode.addChildren(entity.employeeTexts().stream().map(PaxText::parse).toList());
                 node.addChild(ptNode);
             }
             entity.degreeOfEmployment().map(da -> PaxDateAmount.parse(da, "sysgrad")).ifPresent(node::addChild);
@@ -70,7 +69,7 @@ public class PaxStaff {
             entity.wageDestraint().map(PaxWageDestraint::parse).ifPresent(node::addChild);
             if (!entity.profitCenters().isEmpty()) {
                 XmlNode pcNode = NodeFactory.createNode("resenheter");
-                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).collect(Collectors.toList()));
+                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).toList());
                 node.addChild(pcNode);
             }
             entity.info().map(s -> NodeFactory.createNode("info", s)).ifPresent(node::addChild);

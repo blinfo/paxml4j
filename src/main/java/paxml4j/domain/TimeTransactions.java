@@ -9,6 +9,7 @@ import java.util.stream.*;
 import paxml4j.Paxml4jException;
 import paxml4j.json.io.*;
 import paxml4j.util.Helper;
+import static paxml4j.util.Helper.*;
 import xmlight.XmlNode;
 
 /**
@@ -35,9 +36,9 @@ public class TimeTransactions implements Entity {
     }
 
     public static TimeTransactions of(XmlNode node) {
-        List<EventItem> done = node.getChildren("klart").stream().map(EventItem::of).collect(Collectors.toList());
-        List<EventItem> attested = node.getChildren("attesterat").stream().map(EventItem::of).collect(Collectors.toList());
-        List<TimeTransaction> timeTransactions = node.getChildren("tidtrans").stream().map(TimeTransaction::of).collect(Collectors.toList());
+        List<EventItem> done = node.getChildren("klart").stream().map(EventItem::of).toList();
+        List<EventItem> attested = node.getChildren("attesterat").stream().map(EventItem::of).toList();
+        List<TimeTransaction> timeTransactions = node.getChildren("tidtrans").stream().map(TimeTransaction::of).toList();
         return new TimeTransactions(done, attested, timeTransactions);
     }
 
@@ -134,29 +135,29 @@ public class TimeTransactions implements Entity {
 
         public static TimeTransaction of(XmlNode node) {
             Builder builder = builder();
-            Helper.attrText(node, "postid").map(Integer::valueOf).ifPresent(builder::postId);
-            Helper.attrText(node, "anstid").ifPresent(builder::employmentId);
-            Helper.attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
-            Helper.nodeText(node, "tidkod").map(TimeCode::find).ifPresent(builder::timeCode);
-            Helper.nodeText(node, "datum").map(LocalDate::parse).ifPresent(builder::date);
-            Helper.nodeText(node, "datumfrom").map(LocalDate::parse).ifPresent(builder::startDate);
-            Helper.nodeText(node, "datumtom").map(LocalDate::parse).ifPresent(builder::endDate);
-            Helper.nodeText(node, "starttid").map(Helper::temporalFromText).ifPresent(builder::startDateTime);
-            Helper.nodeText(node, "sluttid").map(Helper::temporalFromText).ifPresent(builder::endDateTime);
-            Helper.nodeText(node, "timmar").map(Double::valueOf).ifPresent(builder::hours);
-            Helper.nodeText(node, "omfattning").map(Double::valueOf).ifPresent(builder::extentPercentage);
-            Helper.nodeText(node, "barn").ifPresent(builder::childPersonalIdentityNumber);
-            Helper.nodeText(node, "samlingid").ifPresent(builder::summaryId);
-            Helper.nodeText(node, "semgrund").map(Boolean::valueOf).ifPresent(builder::absenceAccruingHolidayPay);
-            Helper.nodeText(node, "kontonr").ifPresent(builder::accountNumber);
-            Helper.childNode(node, "kundnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
+            attrText(node, "postid").map(Integer::valueOf).ifPresent(builder::postId);
+            attrText(node, "anstid").ifPresent(builder::employmentId);
+            attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
+            nodeText(node, "tidkod").map(TimeCode::find).ifPresent(builder::timeCode);
+            nodeText(node, "datum").map(LocalDate::parse).ifPresent(builder::date);
+            nodeText(node, "datumfrom").map(LocalDate::parse).ifPresent(builder::startDate);
+            nodeText(node, "datumtom").map(LocalDate::parse).ifPresent(builder::endDate);
+            nodeText(node, "starttid").map(Helper::temporalFromText).ifPresent(builder::startDateTime);
+            nodeText(node, "sluttid").map(Helper::temporalFromText).ifPresent(builder::endDateTime);
+            nodeText(node, "timmar").map(Double::valueOf).ifPresent(builder::hours);
+            nodeText(node, "omfattning").map(Double::valueOf).ifPresent(builder::extentPercentage);
+            nodeText(node, "barn").ifPresent(builder::childPersonalIdentityNumber);
+            nodeText(node, "samlingid").ifPresent(builder::summaryId);
+            nodeText(node, "semgrund").map(Boolean::valueOf).ifPresent(builder::absenceAccruingHolidayPay);
+            nodeText(node, "kontonr").ifPresent(builder::accountNumber);
+            childNode(node, "kundnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
             if (node.hasChildNamed("resenheter")) {
                 builder.profitCenters(node.getChild("resenheter").getChildren("resenhet")
                         .stream()
                         .map(ProfitCenter.Reference::of)
-                        .collect(Collectors.toList()));
+                        .toList());
             }
-            Helper.nodeText(node, "info").ifPresent(builder::info);
+            nodeText(node, "info").ifPresent(builder::info);
             return builder.build();
         }
 
@@ -408,12 +409,12 @@ public class TimeTransactions implements Entity {
 
         public static EventItem of(XmlNode node) {
             Builder builder = builder();
-            Helper.attrText(node, "postid").map(Integer::valueOf).ifPresent(builder::postId);
-            Helper.attrText(node, "anstid").ifPresent(builder::employmentId);
-            Helper.attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
-            Helper.attrText(node, "datum").map(LocalDate::parse).ifPresent(builder::date);
-            Helper.attrText(node, "datumfrom").map(LocalDate::parse).ifPresent(builder::startDate);
-            Helper.attrText(node, "datumtom").map(LocalDate::parse).ifPresent(builder::endDate);
+            attrText(node, "postid").map(Integer::valueOf).ifPresent(builder::postId);
+            attrText(node, "anstid").ifPresent(builder::employmentId);
+            attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
+            attrText(node, "datum").map(LocalDate::parse).ifPresent(builder::date);
+            attrText(node, "datumfrom").map(LocalDate::parse).ifPresent(builder::startDate);
+            attrText(node, "datumtom").map(LocalDate::parse).ifPresent(builder::endDate);
             return builder.build();
         }
 

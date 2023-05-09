@@ -2,7 +2,6 @@ package paxml4j.xml;
 
 import java.time.LocalDate;
 import java.time.temporal.Temporal;
-import java.util.stream.Collectors;
 import paxml4j.domain.TimeTransactions;
 import paxml4j.domain.TimeTransactions.*;
 import xmlight.*;
@@ -15,9 +14,9 @@ public class PaxTimeTransactions {
 
     public static XmlNode parse(TimeTransactions entity) {
         XmlNode node = NodeFactory.createNode("tidtransaktioner");
-        node.addChildren(entity.done().stream().map(e -> PaxEventItem.parseDone(e)).collect(Collectors.toList()));
-        node.addChildren(entity.attested().stream().map(e -> PaxEventItem.parseAttested(e)).collect(Collectors.toList()));
-        node.addChildren(entity.transactions().stream().map(PaxTimeTransaction::parse).collect(Collectors.toList()));
+        node.addChildren(entity.done().stream().map(e -> PaxEventItem.parseDone(e)).toList());
+        node.addChildren(entity.attested().stream().map(e -> PaxEventItem.parseAttested(e)).toList());
+        node.addChildren(entity.transactions().stream().map(PaxTimeTransaction::parse).toList());
         return node;
     }
 
@@ -65,7 +64,7 @@ public class PaxTimeTransactions {
             entity.customerNumber().map(PaxCustomerNumber::parse).ifPresent(node::addChild);
             if (!entity.profitCenters().isEmpty()) {
                 XmlNode pcNode = NodeFactory.createNode("resenheter");
-                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).collect(Collectors.toList()));
+                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).toList());
                 node.addChild(pcNode);
             }
             entity.info().map(s -> NodeFactory.createNode("info", s)).ifPresent(node::addChild);

@@ -3,7 +3,6 @@ package paxml4j.xml;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.temporal.Temporal;
-import java.util.stream.Collectors;
 import paxml4j.domain.SalaryTransactions;
 import xmlight.*;
 
@@ -15,7 +14,7 @@ public class PaxSalaryTransactions {
 
     public static XmlNode parse(SalaryTransactions entity) {
         XmlNode node = NodeFactory.createNode("lonetransaktioner");
-        node.addChildren(entity.transactions().stream().map(PaxTransaction::parse).collect(Collectors.toList()));
+        node.addChildren(entity.transactions().stream().map(PaxTransaction::parse).toList());
         return node;
     }
 
@@ -44,7 +43,7 @@ public class PaxSalaryTransactions {
             entity.customerNumber().map(PaxCustomerNumber::parse).ifPresent(node::addChild);
             if (!entity.profitCenters().isEmpty()) {
                 XmlNode pcNode = NodeFactory.createNode("resenheter");
-                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).collect(Collectors.toList()));
+                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).toList());
                 node.addChild(pcNode);
             }
             entity.info().map(s -> NodeFactory.createNode("info", s)).ifPresent(node::addChild);

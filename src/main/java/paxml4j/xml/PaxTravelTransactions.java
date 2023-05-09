@@ -1,7 +1,6 @@
 package paxml4j.xml;
 
 import java.math.BigDecimal;
-import java.util.stream.Collectors;
 import paxml4j.domain.TravelTransactions;
 import xmlight.*;
 
@@ -14,7 +13,7 @@ public class PaxTravelTransactions {
     public static XmlNode parse(TravelTransactions entity) {
         XmlNode node = NodeFactory.createNode("resetransaktioner");
         entity.countryCodeStandard().ifPresent(s -> node.addAttribute("landskodstd", s));
-        node.addChildren(entity.transactions().stream().map(PaxTransaction::parse).collect(Collectors.toList()));
+        node.addChildren(entity.transactions().stream().map(PaxTransaction::parse).toList());
         return node;
     }
 
@@ -37,7 +36,7 @@ public class PaxTravelTransactions {
             entity.numberOfParticipants().map(i -> i.toString()).map(s -> NodeFactory.createNode("antdeltag", s)).ifPresent(node::addChild);
             if (!entity.participants().isEmpty()) {
                 XmlNode partList = NodeFactory.createNode("deltagarlista");
-                partList.addChildren(entity.participants().stream().map(PaxParticipant::parse).collect(Collectors.toList()));
+                partList.addChildren(entity.participants().stream().map(PaxParticipant::parse).toList());
                 node.addChild(partList);
             }
             entity.typeOfGoods().map(s -> NodeFactory.createNode("varugrupp", s)).ifPresent(node::addChild);
@@ -59,7 +58,7 @@ public class PaxTravelTransactions {
             entity.customerNumber().map(PaxCustomerNumber::parse).ifPresent(node::addChild);
             if (!entity.profitCenters().isEmpty()) {
                 XmlNode pcNode = NodeFactory.createNode("resenheter");
-                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).collect(Collectors.toList()));
+                pcNode.addChildren(entity.profitCenters().stream().map(PaxProfitCenter.PaxReference::parse).toList());
                 node.addChild(pcNode);
             }
             entity.note().map(s -> NodeFactory.createNode("note", s)).ifPresent(node::addChild);

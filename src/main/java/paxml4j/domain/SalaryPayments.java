@@ -10,6 +10,7 @@ import java.util.stream.*;
 import paxml4j.Paxml4jException;
 import paxml4j.json.io.*;
 import paxml4j.util.Helper;
+import static paxml4j.util.Helper.*;
 import xmlight.XmlNode;
 
 /**
@@ -30,7 +31,7 @@ public class SalaryPayments implements Entity {
     }
 
     public static SalaryPayments of(XmlNode node) {
-        return of(node.getChildren("lonebesked").stream().map(Payslip::of).collect(Collectors.toList()));
+        return of(node.getChildren("lonebesked").stream().map(Payslip::of).toList());
     }
 
     public List<Payslip> payslips() {
@@ -189,56 +190,56 @@ public class SalaryPayments implements Entity {
 
         public static Payslip of(XmlNode node) {
             Builder builder = builder();
-            Helper.attrText(node, "anstid").ifPresent(builder::employmentId);
-            Helper.attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
-            Helper.nodeText(node, "periodid").ifPresent(builder::periodId);
-            Helper.nodeText(node, "periodtext").ifPresent(builder::periodText);
-            Helper.nodeText(node, "betaldatum").map(LocalDate::parse).ifPresent(builder::paymentDate);
-            Helper.nodeText(node, "fornamn").ifPresent(builder::firstName);
-            Helper.nodeText(node, "efternamn").ifPresent(builder::lastName);
-            Helper.nodeText(node, "extraadress").ifPresent(builder::extraAddress);
-            Helper.nodeText(node, "postadress").ifPresent(builder::postalAddress);
-            Helper.nodeText(node, "postnr").ifPresent(builder::zipCode);
-            Helper.nodeText(node, "ort").ifPresent(builder::city);
-            Helper.nodeText(node, "land").ifPresent(builder::country);
-            Helper.nodeText(node, "bankclearing").ifPresent(builder::bankClearingNumber);
-            Helper.nodeText(node, "bankkonto").ifPresent(builder::bankAccountNumber);
-            Helper.nodeText(node, "skattprocent").map(Double::valueOf).ifPresent(builder::taxPercentage);
-            Helper.nodeText(node, "skattetabell").map(Integer::valueOf).ifPresent(builder::taxTable);
-            Helper.nodeText(node, "jamkningprc").map(Double::valueOf).ifPresent(builder::taxAdjustmentPercentage);
-            Helper.nodeText(node, "jamkningbel").map(BigDecimal::new).ifPresent(builder::taxAdjustmentAmount);
-            Helper.nodeText(node, "skattekolumn").map(Integer::valueOf).ifPresent(builder::taxColumn);
-            Helper.nodeText(node, "tabellskatt").map(BigDecimal::new).ifPresent(builder::tableTax);
-            Helper.nodeText(node, "engangsskatt").map(BigDecimal::new).ifPresent(builder::oneTimeTax);
-            Helper.nodeText(node, "kapitalskatt").map(BigDecimal::new).ifPresent(builder::capitalTax);
-            Helper.nodeText(node, "extraskatt").map(BigDecimal::new).ifPresent(builder::extraTax);
-            Helper.nodeText(node, "utbetalt").map(BigDecimal::new).ifPresent(builder::disbursed);
-            Helper.nodeText(node, "arbavgiftprc").map(Double::valueOf).ifPresent(builder::employersContributionPercentage);
-            Helper.nodeText(node, "arbavgiftbel").map(BigDecimal::new).ifPresent(builder::employersContributionAmount);
+            attrText(node, "anstid").ifPresent(builder::employmentId);
+            attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
+            nodeText(node, "periodid").ifPresent(builder::periodId);
+            nodeText(node, "periodtext").ifPresent(builder::periodText);
+            nodeText(node, "betaldatum").map(LocalDate::parse).ifPresent(builder::paymentDate);
+            nodeText(node, "fornamn").ifPresent(builder::firstName);
+            nodeText(node, "efternamn").ifPresent(builder::lastName);
+            nodeText(node, "extraadress").ifPresent(builder::extraAddress);
+            nodeText(node, "postadress").ifPresent(builder::postalAddress);
+            nodeText(node, "postnr").ifPresent(builder::zipCode);
+            nodeText(node, "ort").ifPresent(builder::city);
+            nodeText(node, "land").ifPresent(builder::country);
+            nodeText(node, "bankclearing").ifPresent(builder::bankClearingNumber);
+            nodeText(node, "bankkonto").ifPresent(builder::bankAccountNumber);
+            nodeText(node, "skattprocent").map(Double::valueOf).ifPresent(builder::taxPercentage);
+            nodeText(node, "skattetabell").map(Integer::valueOf).ifPresent(builder::taxTable);
+            nodeText(node, "jamkningprc").map(Double::valueOf).ifPresent(builder::taxAdjustmentPercentage);
+            nodeText(node, "jamkningbel").map(BigDecimal::new).ifPresent(builder::taxAdjustmentAmount);
+            nodeText(node, "skattekolumn").map(Integer::valueOf).ifPresent(builder::taxColumn);
+            nodeText(node, "tabellskatt").map(BigDecimal::new).ifPresent(builder::tableTax);
+            nodeText(node, "engangsskatt").map(BigDecimal::new).ifPresent(builder::oneTimeTax);
+            nodeText(node, "kapitalskatt").map(BigDecimal::new).ifPresent(builder::capitalTax);
+            nodeText(node, "extraskatt").map(BigDecimal::new).ifPresent(builder::extraTax);
+            nodeText(node, "utbetalt").map(BigDecimal::new).ifPresent(builder::disbursed);
+            nodeText(node, "arbavgiftprc").map(Double::valueOf).ifPresent(builder::employersContributionPercentage);
+            nodeText(node, "arbavgiftbel").map(BigDecimal::new).ifPresent(builder::employersContributionAmount);
             if (node.hasChildNamed("lonerader")) {
-                builder.paymentRows(node.getChild("lonerader").getChildren("lonrad").stream().map(PaymentRow::of).collect(Collectors.toList()));
+                builder.paymentRows(node.getChild("lonerader").getChildren("lonrad").stream().map(PaymentRow::of).toList());
             }
-            Helper.nodeText(node, "ackbruttolon").map(BigDecimal::new).ifPresent(builder::accumulatedGrossWage);
-            Helper.nodeText(node, "ackprelskatt").map(BigDecimal::new).ifPresent(builder::accumulatedPerliminaryTax);
-            Helper.nodeText(node, "acknettolon").map(BigDecimal::new).ifPresent(builder::accumulatedNetWage);
-            Helper.nodeText(node, "flexsaldo").map(Double::valueOf).ifPresent(builder::flexibleHoursBalance);
-            Helper.nodeText(node, "kompsaldo").map(Double::valueOf).ifPresent(builder::compensatoryLeaveBalance);
-            Helper.nodeText(node, "tidbanktim").map(Double::valueOf).ifPresent(builder::reductionOfWorkingHours);
-            Helper.nodeText(node, "tidbankbel").map(BigDecimal::new).ifPresent(builder::reductionOfWorkingHoursAmount);
-            Helper.nodeText(node, "sembettot").map(Double::valueOf).ifPresent(builder::daysOfVacationTotal);
-            Helper.nodeText(node, "sembetutb").map(Double::valueOf).ifPresent(builder::daysOfVacationDisbursed);
-            Helper.nodeText(node, "semobetot").map(Double::valueOf).ifPresent(builder::daysOfUnpaidVacationTotal);
-            Helper.nodeText(node, "semobeutb").map(Double::valueOf).ifPresent(builder::daysOfUnpaidVacationDisbursed);
-            Helper.nodeText(node, "semfortot").map(Double::valueOf).ifPresent(builder::daysOfAdvancedVacationTotal);
-            Helper.nodeText(node, "semforutb").map(Double::valueOf).ifPresent(builder::daysOfAdvancedVacationDisbursed);
-            Helper.nodeText(node, "semspatot").map(Double::valueOf).ifPresent(builder::daysOfSavedVacationTotal);
-            Helper.nodeText(node, "semspautb").map(Double::valueOf).ifPresent(builder::daysOfSavedVacationDisbursed);
-            Helper.nodeText(node, "semlontot").map(BigDecimal::new).ifPresent(builder::vacationPaymentAmountTotal);
-            Helper.nodeText(node, "semlonutb").map(BigDecimal::new).ifPresent(builder::vacationPaymentAmountDisbursed);
+            nodeText(node, "ackbruttolon").map(BigDecimal::new).ifPresent(builder::accumulatedGrossWage);
+            nodeText(node, "ackprelskatt").map(BigDecimal::new).ifPresent(builder::accumulatedPerliminaryTax);
+            nodeText(node, "acknettolon").map(BigDecimal::new).ifPresent(builder::accumulatedNetWage);
+            nodeText(node, "flexsaldo").map(Double::valueOf).ifPresent(builder::flexibleHoursBalance);
+            nodeText(node, "kompsaldo").map(Double::valueOf).ifPresent(builder::compensatoryLeaveBalance);
+            nodeText(node, "tidbanktim").map(Double::valueOf).ifPresent(builder::reductionOfWorkingHours);
+            nodeText(node, "tidbankbel").map(BigDecimal::new).ifPresent(builder::reductionOfWorkingHoursAmount);
+            nodeText(node, "sembettot").map(Double::valueOf).ifPresent(builder::daysOfVacationTotal);
+            nodeText(node, "sembetutb").map(Double::valueOf).ifPresent(builder::daysOfVacationDisbursed);
+            nodeText(node, "semobetot").map(Double::valueOf).ifPresent(builder::daysOfUnpaidVacationTotal);
+            nodeText(node, "semobeutb").map(Double::valueOf).ifPresent(builder::daysOfUnpaidVacationDisbursed);
+            nodeText(node, "semfortot").map(Double::valueOf).ifPresent(builder::daysOfAdvancedVacationTotal);
+            nodeText(node, "semforutb").map(Double::valueOf).ifPresent(builder::daysOfAdvancedVacationDisbursed);
+            nodeText(node, "semspatot").map(Double::valueOf).ifPresent(builder::daysOfSavedVacationTotal);
+            nodeText(node, "semspautb").map(Double::valueOf).ifPresent(builder::daysOfSavedVacationDisbursed);
+            nodeText(node, "semlontot").map(BigDecimal::new).ifPresent(builder::vacationPaymentAmountTotal);
+            nodeText(node, "semlonutb").map(BigDecimal::new).ifPresent(builder::vacationPaymentAmountDisbursed);
             if (node.hasChildNamed("kontering")) {
-                builder.transactions(node.getChild("kontering").getChildren("transaktion").stream().map(Transaction::of).collect(Collectors.toList()));
+                builder.transactions(node.getChild("kontering").getChildren("transaktion").stream().map(Transaction::of).toList());
             }
-            Helper.nodeText(node, "info").ifPresent(builder::info);
+            nodeText(node, "info").ifPresent(builder::info);
             return builder.build();
         }
 
@@ -521,37 +522,37 @@ public class SalaryPayments implements Entity {
 
         public static PaymentRow of(XmlNode node) {
             Builder builder = builder();
-            Helper.attrText(node, "radnr").map(Integer::valueOf).ifPresent(builder::rowIndex);
-            Helper.nodeText(node, "lonart").ifPresent(builder::typeOfSalary);
-            Helper.nodeText(node, "font").ifPresent(builder::font);
-            Helper.nodeText(node, "benamning").ifPresent(builder::nameOfSalary);
-            Helper.nodeText(node, "kommentar").ifPresent(builder::comment);
-            Helper.nodeText(node, "datumfrom").map(Helper::temporalFromText).ifPresent(builder::startDate);
-            Helper.nodeText(node, "datumtom").map(Helper::temporalFromText).ifPresent(builder::endDate);
-            Helper.nodeText(node, "timmar").map(Double::valueOf).ifPresent(builder::hours);
-            Helper.nodeText(node, "arbetsdagar").map(Double::valueOf).ifPresent(builder::workingDays);
-            Helper.nodeText(node, "dagar").map(Double::valueOf).ifPresent(builder::calendarDays);
-            Helper.nodeText(node, "enhet").ifPresent(builder::unit);
-            Helper.nodeText(node, "antal").map(Double::valueOf).ifPresent(builder::quantity);
-            Helper.nodeText(node, "apris").map(BigDecimal::new).ifPresent(builder::unitPrice);
-            Helper.nodeText(node, "belopp").map(BigDecimal::new).ifPresent(builder::amount);
-            Helper.nodeText(node, "lonetyp").map(SalaryType::find).ifPresent(builder::salaryType);
-            Helper.nodeText(node, "skattetyp").map(TaxationType::find).ifPresent(builder::taxType);
-            Helper.nodeText(node, "skatteprocent").map(Double::valueOf).ifPresent(builder::taxPercentage);
-            Helper.nodeText(node, "avgifttyp").map(DueType::find).ifPresent(builder::dueType);
-            Helper.nodeText(node, "avgiftprocent").map(Double::valueOf).ifPresent(builder::duePercentage);
+            attrText(node, "radnr").map(Integer::valueOf).ifPresent(builder::rowIndex);
+            nodeText(node, "lonart").ifPresent(builder::typeOfSalary);
+            nodeText(node, "font").ifPresent(builder::font);
+            nodeText(node, "benamning").ifPresent(builder::nameOfSalary);
+            nodeText(node, "kommentar").ifPresent(builder::comment);
+            nodeText(node, "datumfrom").map(Helper::temporalFromText).ifPresent(builder::startDate);
+            nodeText(node, "datumtom").map(Helper::temporalFromText).ifPresent(builder::endDate);
+            nodeText(node, "timmar").map(Double::valueOf).ifPresent(builder::hours);
+            nodeText(node, "arbetsdagar").map(Double::valueOf).ifPresent(builder::workingDays);
+            nodeText(node, "dagar").map(Double::valueOf).ifPresent(builder::calendarDays);
+            nodeText(node, "enhet").ifPresent(builder::unit);
+            nodeText(node, "antal").map(Double::valueOf).ifPresent(builder::quantity);
+            nodeText(node, "apris").map(BigDecimal::new).ifPresent(builder::unitPrice);
+            nodeText(node, "belopp").map(BigDecimal::new).ifPresent(builder::amount);
+            nodeText(node, "lonetyp").map(SalaryType::find).ifPresent(builder::salaryType);
+            nodeText(node, "skattetyp").map(TaxationType::find).ifPresent(builder::taxType);
+            nodeText(node, "skatteprocent").map(Double::valueOf).ifPresent(builder::taxPercentage);
+            nodeText(node, "avgifttyp").map(DueType::find).ifPresent(builder::dueType);
+            nodeText(node, "avgiftprocent").map(Double::valueOf).ifPresent(builder::duePercentage);
             // Felstavat i schemat, ska nog vara regional
-            Helper.nodeText(node, "regiona").map(Boolean::valueOf).ifPresent(builder::regionalSupport);
-            Helper.nodeText(node, "regional").map(Boolean::valueOf).ifPresent(builder::regionalSupport);
+            nodeText(node, "regiona").map(Boolean::valueOf).ifPresent(builder::regionalSupport);
+            nodeText(node, "regional").map(Boolean::valueOf).ifPresent(builder::regionalSupport);
             // Båda med för säkerhetsskull
-            Helper.nodeText(node, "kontonr").ifPresent(builder::accountNumber);
-            Helper.childNode(node, "kudnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
+            nodeText(node, "kontonr").ifPresent(builder::accountNumber);
+            childNode(node, "kudnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
             if (node.hasChildNamed("resenheter")) {
-                builder.profitCenters(node.getChild("resenheter").getChildren("resenhet").stream().map(ProfitCenter.Reference::of).collect(Collectors.toList()));
+                builder.profitCenters(node.getChild("resenheter").getChildren("resenhet").stream().map(ProfitCenter.Reference::of).toList());
             }
-            Helper.nodeText(node, "statistikkod").ifPresent(builder::statisticsCode);
-            Helper.nodeText(node, "kontrolluppgift").ifPresent(builder::statementOfEarnings);
-            Helper.nodeText(node, "info").ifPresent(builder::info);
+            nodeText(node, "statistikkod").ifPresent(builder::statisticsCode);
+            nodeText(node, "kontrolluppgift").ifPresent(builder::statementOfEarnings);
+            nodeText(node, "info").ifPresent(builder::info);
             return builder.build();
         }
 
@@ -877,11 +878,11 @@ public class SalaryPayments implements Entity {
 
         public static Transaction of(XmlNode node) {
             Builder builder = builder();
-            Helper.attrText(node, "kontonr").ifPresent(builder::accountNumber);
-            Helper.attrText(node, "belopp").map(BigDecimal::new).ifPresent(builder::amount);
-            Helper.childNode(node, "kundnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
+            attrText(node, "kontonr").ifPresent(builder::accountNumber);
+            attrText(node, "belopp").map(BigDecimal::new).ifPresent(builder::amount);
+            childNode(node, "kundnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
             if (node.hasChildNamed("resenheter")) {
-                builder.profitCenters(node.getChild("resenheter").getChildren("resenhet").stream().map(ProfitCenter.Reference::of).collect(Collectors.toList()));
+                builder.profitCenters(node.getChild("resenheter").getChildren("resenhet").stream().map(ProfitCenter.Reference::of).toList());
             }
             return builder.build();
         }

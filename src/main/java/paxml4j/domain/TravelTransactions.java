@@ -7,7 +7,7 @@ import java.time.temporal.Temporal;
 import java.util.*;
 import java.util.stream.*;
 import paxml4j.json.io.*;
-import paxml4j.util.Helper;
+import static paxml4j.util.Helper.*;
 import xmlight.XmlNode;
 
 /**
@@ -35,7 +35,7 @@ public class TravelTransactions implements Entity {
     }
 
     public static TravelTransactions of(XmlNode node) {
-        return new TravelTransactions(node.getChildren("resetrans").stream().map(Transaction::of).collect(Collectors.toList()), node.getAttribute("landskodstd"));
+        return new TravelTransactions(node.getChildren("resetrans").stream().map(Transaction::of).toList(), node.getAttribute("landskodstd"));
     }
 
     public List<Transaction> transactions() {
@@ -167,49 +167,49 @@ public class TravelTransactions implements Entity {
 
         public static Transaction of(XmlNode node) {
             Builder builder = builder();
-            builder.dateTime(Helper.temporalFromText(node.getChild("tidpunkt").getText()));
+            builder.dateTime(temporalFromText(node.getChild("tidpunkt").getText()));
             builder.travelCode(TravelCode.find(node.getChild("resekod").getText()));
-            Helper.attrText(node, "postid").map(Integer::valueOf).ifPresent(builder::postId);
-            Helper.attrText(node, "anstid").ifPresent(builder::employmentId);
-            Helper.attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
-            Helper.nodeText(node, "landskod").ifPresent(builder::countryCode);
-            Helper.nodeText(node, "valutakod").ifPresent(builder::currencyCode);
-            Helper.nodeText(node, "valutafaktor").map(BigDecimal::new).ifPresent(builder::exchangeRate);
-            Helper.nodeText(node, "belopp").map(BigDecimal::new).ifPresent(builder::amount);
-            Helper.nodeText(node, "moms").map(BigDecimal::new).ifPresent(builder::vat);
-            Helper.nodeText(node, "ftgkort").map(Boolean::valueOf).ifPresent(builder::companyCard);
-            Helper.nodeText(node, "antdeltag").map(Integer::valueOf).ifPresent(builder::numberOfParticipants);
+            attrText(node, "postid").map(Integer::valueOf).ifPresent(builder::postId);
+            attrText(node, "anstid").ifPresent(builder::employmentId);
+            attrText(node, "persnr").ifPresent(builder::personalIdentityNumber);
+            nodeText(node, "landskod").ifPresent(builder::countryCode);
+            nodeText(node, "valutakod").ifPresent(builder::currencyCode);
+            nodeText(node, "valutafaktor").map(BigDecimal::new).ifPresent(builder::exchangeRate);
+            nodeText(node, "belopp").map(BigDecimal::new).ifPresent(builder::amount);
+            nodeText(node, "moms").map(BigDecimal::new).ifPresent(builder::vat);
+            nodeText(node, "ftgkort").map(Boolean::valueOf).ifPresent(builder::companyCard);
+            nodeText(node, "antdeltag").map(Integer::valueOf).ifPresent(builder::numberOfParticipants);
             if (node.hasChildNamed("deltagarlista")) {
                 builder.participants(node.getChild("deltagarlista").getChildren("deltagare")
                         .stream()
                         .map(Participant::of)
-                        .collect(Collectors.toList()));
+                        .toList());
             }
-            Helper.nodeText(node, "varugrupp").ifPresent(builder::typeOfGoods);
-            Helper.nodeText(node, "specifikation").ifPresent(builder::specification);
-            Helper.nodeText(node, "kontonr").ifPresent(builder::acountNumber);
-            Helper.nodeText(node, "bilnr").ifPresent(builder::carRegistrationNumber);
-            Helper.nodeText(node, "bilmodell").ifPresent(builder::carModel);
-            Helper.nodeText(node, "foretag").ifPresent(builder::company);
-            Helper.nodeText(node, "kontakt").ifPresent(builder::contact);
-            Helper.nodeText(node, "syfte").ifPresent(builder::purpose);
-            Helper.nodeText(node, "ort").ifPresent(builder::location);
-            Helper.nodeText(node, "kmstart").map(Integer::valueOf).ifPresent(builder::meterIndicatorStart);
-            Helper.nodeText(node, "kmstopp").map(Integer::valueOf).ifPresent(builder::meterIndicatorEnd);
-            Helper.nodeText(node, "kilometer").map(Integer::valueOf).ifPresent(builder::numberOfKilometers);
-            Helper.nodeText(node, "antpass").map(Integer::valueOf).ifPresent(builder::numberOfPassengers);
-            Helper.nodeText(node, "antlast").map(Integer::valueOf).ifPresent(builder::freightWeightInKilograms);
-            Helper.nodeText(node, "timmar").map(Double::valueOf).ifPresent(builder::travelTimeInHours);
-            Helper.nodeText(node, "samlingsid").ifPresent(builder::summaryId);
-            Helper.childNode(node, "kundnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
+            nodeText(node, "varugrupp").ifPresent(builder::typeOfGoods);
+            nodeText(node, "specifikation").ifPresent(builder::specification);
+            nodeText(node, "kontonr").ifPresent(builder::acountNumber);
+            nodeText(node, "bilnr").ifPresent(builder::carRegistrationNumber);
+            nodeText(node, "bilmodell").ifPresent(builder::carModel);
+            nodeText(node, "foretag").ifPresent(builder::company);
+            nodeText(node, "kontakt").ifPresent(builder::contact);
+            nodeText(node, "syfte").ifPresent(builder::purpose);
+            nodeText(node, "ort").ifPresent(builder::location);
+            nodeText(node, "kmstart").map(Integer::valueOf).ifPresent(builder::meterIndicatorStart);
+            nodeText(node, "kmstopp").map(Integer::valueOf).ifPresent(builder::meterIndicatorEnd);
+            nodeText(node, "kilometer").map(Integer::valueOf).ifPresent(builder::numberOfKilometers);
+            nodeText(node, "antpass").map(Integer::valueOf).ifPresent(builder::numberOfPassengers);
+            nodeText(node, "antlast").map(Integer::valueOf).ifPresent(builder::freightWeightInKilograms);
+            nodeText(node, "timmar").map(Double::valueOf).ifPresent(builder::travelTimeInHours);
+            nodeText(node, "samlingsid").ifPresent(builder::summaryId);
+            childNode(node, "kundnr").map(CustomerNumber::of).ifPresent(builder::customerNumber);
             if (node.hasChildNamed("resenheter")) {
                 builder.profitCenters(node.getChild("resenheter").getChildren("resenhet")
                         .stream()
                         .map(ProfitCenter.Reference::of)
-                        .collect(Collectors.toList()));
+                        .toList());
             }
-            Helper.nodeText(node, "anteckning").ifPresent(builder::note);
-            Helper.nodeText(node, "info").ifPresent(builder::info);
+            nodeText(node, "anteckning").ifPresent(builder::note);
+            nodeText(node, "info").ifPresent(builder::info);
             return builder.build();
         }
 

@@ -7,6 +7,7 @@ import java.time.temporal.Temporal;
 import java.util.Optional;
 import paxml4j.json.io.*;
 import paxml4j.util.Helper;
+import static paxml4j.util.Helper.*;
 import xmlight.XmlNode;
 
 /**
@@ -87,29 +88,29 @@ public class Header implements Entity {
 
     public static Header of(XmlNode node) {
         Builder builder = builder();
-        Helper.nodeText(node, "format").ifPresent(builder::format);
-        Helper.nodeText(node, "datum").map(Helper::temporalFromText).ifPresent(builder::timestamp);
+        nodeText(node, "format").ifPresent(builder::format);
+        nodeText(node, "datum").map(Helper::temporalFromText).ifPresent(builder::timestamp);
         if (node.hasChildNamed("nyexport")) {
             builder.newExport(NewExport.of(node.getChild("nyexport")));
         }
-        Helper.nodeText(node, "foretagid").ifPresent(builder::companyId);
-        Helper.nodeText(node, "foretagorgnr").ifPresent(builder::corporateIdentityNumber);
-        Helper.nodeText(node, "foretagnamn").ifPresent(builder::companyName);
-        Helper.nodeText(node, "extraadress").ifPresent(builder::extraAddress);
-        Helper.nodeText(node, "postadress").ifPresent(builder::postalAddress);
-        Helper.nodeText(node, "postnr").ifPresent(builder::zipCode);
-        Helper.nodeText(node, "ort").ifPresent(builder::city);
-        Helper.nodeText(node, "land").ifPresent(builder::country);
-        Helper.nodeText(node, "epost").ifPresent(builder::email);
-        Helper.nodeText(node, "hemsida").ifPresent(builder::homepage);
-        Helper.nodeText(node, "kontaktperson").ifPresent(builder::contact);
-        Helper.nodeText(node, "personalansvarig").ifPresent(builder::staffManager);
-        Helper.nodeText(node, "attestansvarig").ifPresent(builder::attestant);
-        Helper.nodeText(node, "telefon").ifPresent(builder::phone);
-        Helper.nodeText(node, "telefax").ifPresent(builder::fax);
-        Helper.nodeText(node, "programnamn").ifPresent(builder::programName);
-        Helper.nodeText(node, "programlicens").ifPresent(builder::programLicense);
-        Helper.nodeText(node, "info").ifPresent(builder::info);
+        nodeText(node, "foretagid").ifPresent(builder::companyId);
+        nodeText(node, "foretagorgnr").ifPresent(builder::corporateIdentityNumber);
+        nodeText(node, "foretagnamn").ifPresent(builder::companyName);
+        nodeText(node, "extraadress").ifPresent(builder::extraAddress);
+        nodeText(node, "postadress").ifPresent(builder::postalAddress);
+        nodeText(node, "postnr").ifPresent(builder::zipCode);
+        nodeText(node, "ort").ifPresent(builder::city);
+        nodeText(node, "land").ifPresent(builder::country);
+        nodeText(node, "epost").ifPresent(builder::email);
+        nodeText(node, "hemsida").ifPresent(builder::homepage);
+        nodeText(node, "kontaktperson").ifPresent(builder::contact);
+        nodeText(node, "personalansvarig").ifPresent(builder::staffManager);
+        nodeText(node, "attestansvarig").ifPresent(builder::attestant);
+        nodeText(node, "telefon").ifPresent(builder::phone);
+        nodeText(node, "telefax").ifPresent(builder::fax);
+        nodeText(node, "programnamn").ifPresent(builder::programName);
+        nodeText(node, "programlicens").ifPresent(builder::programLicense);
+        nodeText(node, "info").ifPresent(builder::info);
         return builder.build();
     }
 

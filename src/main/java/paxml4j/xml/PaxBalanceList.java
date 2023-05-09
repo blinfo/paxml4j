@@ -2,7 +2,6 @@ package paxml4j.xml;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.stream.Collectors;
 import paxml4j.domain.BalanceList;
 import paxml4j.domain.BalanceList.Balance;
 import xmlight.*;
@@ -15,7 +14,7 @@ public class PaxBalanceList {
 
     public static XmlNode parse(BalanceList entity) {
         XmlNode node = NodeFactory.createNode("saldon");
-        node.addChildren(entity.balances().stream().map(PaxBalance::parse).collect(Collectors.toList()));
+        node.addChildren(entity.balances().stream().map(PaxBalance::parse).toList());
         return node;
     }
 

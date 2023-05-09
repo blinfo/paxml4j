@@ -2,8 +2,7 @@ package paxml4j.domain;
 
 import com.fasterxml.jackson.annotation.*;
 import java.util.*;
-import java.util.stream.Collectors;
-import paxml4j.util.Helper;
+import static paxml4j.util.Helper.*;
 import xmlight.XmlNode;
 
 /**
@@ -57,21 +56,21 @@ public class Root implements Entity {
         Builder builder = builder();
         builder.header(Header.of(node.getChild("header")));
         if (node.hasChildNamed("dimensioner")) {
-            builder.dimensions(node.getChild("dimensioner").getChildren("dimension").stream().map(Dimension::of).collect(Collectors.toList()));
+            builder.dimensions(node.getChild("dimensioner").getChildren("dimension").stream().map(Dimension::of).toList());
         }
         if (node.hasChildNamed("resultatenheter")) {
-            builder.profitCenters(node.getChild("resultatenheter").getChildren("resultatenhet").stream().map(ProfitCenter::of).collect(Collectors.toList()));
+            builder.profitCenters(node.getChild("resultatenheter").getChildren("resultatenhet").stream().map(ProfitCenter::of).toList());
         }
         if (node.hasChildNamed("koder")) {
-            builder.codes(node.getChild("koder").getChildren("kod").stream().map(Code::of).collect(Collectors.toList()));
+            builder.codes(node.getChild("koder").getChildren("kod").stream().map(Code::of).toList());
         }
-        Helper.childNode(node, "resetransaktioner").map(TravelTransactions::of).ifPresent(builder::travelTransactions);
-        Helper.childNode(node, "tidtransaktioner").map(TimeTransactions::of).ifPresent(builder::timeTransactions);
-        Helper.childNode(node, "lonetransaktioner").map(SalaryTransactions::of).ifPresent(builder::salaryTransactions);
-        Helper.childNode(node, "schematransaktioner").map(SchemeTransactions::of).ifPresent(builder::schemeTransactions);
-        Helper.childNode(node, "personal").map(Staff::of).ifPresent(builder::staff);
-        Helper.childNode(node, "loneutbetalning").map(SalaryPayments::of).ifPresent(builder::salaryPayments);
-        Helper.childNode(node, "saldon").map(BalanceList::of).ifPresent(builder::balanceList);
+        childNode(node, "resetransaktioner").map(TravelTransactions::of).ifPresent(builder::travelTransactions);
+        childNode(node, "tidtransaktioner").map(TimeTransactions::of).ifPresent(builder::timeTransactions);
+        childNode(node, "lonetransaktioner").map(SalaryTransactions::of).ifPresent(builder::salaryTransactions);
+        childNode(node, "schematransaktioner").map(SchemeTransactions::of).ifPresent(builder::schemeTransactions);
+        childNode(node, "personal").map(Staff::of).ifPresent(builder::staff);
+        childNode(node, "loneutbetalning").map(SalaryPayments::of).ifPresent(builder::salaryPayments);
+        childNode(node, "saldon").map(BalanceList::of).ifPresent(builder::balanceList);
         return builder.build();
     }
 
