@@ -757,6 +757,7 @@
             <xs:enumeration value="UTRNAT_SKT"/>
             <xs:enumeration value="MIL_FRI"/>
             <xs:enumeration value="MIL_SKT"/>
+            <xs:enumeration value="MILEL_FRI"/>
             <xs:enumeration value="MILPRI_FRI"/>
             <xs:enumeration value="MILPRI_SKT"/>
             <xs:enumeration value="MILFTG_FRI"/>
