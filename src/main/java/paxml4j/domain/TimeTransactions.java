@@ -577,6 +577,7 @@ public class TimeTransactions implements Entity {
         TRAVELLING_TIME_1("RE1"),
         TRAVELLING_TIME_2("RE2"),
         TRAVELLING_TIME_3("RE3"),
+        TRAVELLING_TIME_4("RE4"),
         OTHER_PRESENCE_1("NV1"),
         OTHER_PRESENCE_2("NV2"),
         OTHER_PRESENCE_3("NV3"),

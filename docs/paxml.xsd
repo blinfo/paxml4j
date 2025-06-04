@@ -653,6 +653,7 @@
             <xs:enumeration value="RE1"/>
             <xs:enumeration value="RE2"/>
             <xs:enumeration value="RE3"/>
+            <xs:enumeration value="RE4"/>
             <xs:enumeration value="HLG"/>
             <xs:enumeration value="SKI"/>
             <xs:enumeration value="LT1"/>
@@ -699,6 +700,7 @@
             <xs:enumeration value="RE1"/>
             <xs:enumeration value="RE2"/>
             <xs:enumeration value="RE3"/>
+            <xs:enumeration value="RE4"/>
             <xs:enumeration value="NV1"/>
             <xs:enumeration value="NV2"/>
             <xs:enumeration value="NV3"/>
